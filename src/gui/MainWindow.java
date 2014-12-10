@@ -7,6 +7,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JProgressBar;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
 
 public class MainWindow {
 
@@ -54,6 +57,15 @@ public class MainWindow {
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
+		
+		JMenu mnNew = new JMenu("New");
+		mnFile.add(mnNew);
+		
+		JMenu mnOpen = new JMenu("Open");
+		mnFile.add(mnOpen);
+		
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mnFile.add(mntmExit);
 		
 		JMenu mnEdit = new JMenu("Edit");
 		menuBar.add(mnEdit);
