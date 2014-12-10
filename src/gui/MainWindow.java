@@ -10,10 +10,18 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JProgressBar;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.JTable;
+import javax.swing.JSlider;
+import javax.swing.JToggleButton;
+import javax.swing.JCheckBox;
+import javax.swing.JTabbedPane;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import javax.swing.JPanel;
 
 public class MainWindow {
 
-	private JFrame frame;
+	private JFrame frmFinanceManager;
 
 	/**
 	 * Launch the application.
@@ -28,7 +36,7 @@ public class MainWindow {
 			public void run() {
 				try {
 					MainWindow window = new MainWindow();
-					window.frame.setVisible(true);
+					window.frmFinanceManager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -47,13 +55,14 @@ public class MainWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmFinanceManager = new JFrame();
+		frmFinanceManager.setTitle("Finance Manager");
+		frmFinanceManager.setBounds(100, 100, 800, 600);
+		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmFinanceManager.getContentPane().setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
+		frmFinanceManager.setJMenuBar(menuBar);
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
