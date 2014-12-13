@@ -10,28 +10,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class MainWindow {
 
-	private JFrame frmFinanceManager;
-
-	/**
-	 * Launch the application.
-	 * @throws UnsupportedLookAndFeelException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws ClassNotFoundException 
-	 */
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindow window = new MainWindow();
-					window.frmFinanceManager.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public JFrame frmFinanceManager;
 
 	/**
 	 * Create the application.
@@ -61,6 +40,9 @@ public class MainWindow {
 		
 		JMenu mnOpen = new JMenu("Open");
 		mnFile.add(mnOpen);
+		
+		JMenuItem menuItem = new JMenuItem("New menu item");
+		mnFile.add(menuItem);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mnFile.add(mntmExit);
