@@ -7,6 +7,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JPanel;
+import java.awt.Color;
 
 public class MainWindow {
 
@@ -24,6 +26,7 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frmFinanceManager = new JFrame();
+		frmFinanceManager.getContentPane().setBackground(new Color(51, 51, 51));
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 800, 600);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
