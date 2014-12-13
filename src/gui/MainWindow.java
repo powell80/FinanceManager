@@ -1,23 +1,12 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.JProgressBar;
-import javax.swing.JButton;
-import javax.swing.JMenuItem;
-import javax.swing.JTable;
-import javax.swing.JSlider;
-import javax.swing.JToggleButton;
-import javax.swing.JCheckBox;
-import javax.swing.JTabbedPane;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
-import javax.swing.JPanel;
 
 public class MainWindow {
 
