@@ -9,6 +9,11 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JPanel;
 import java.awt.Color;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import java.awt.Window.Type;
 
 public class MainWindow {
 
@@ -28,7 +33,7 @@ public class MainWindow {
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.getContentPane().setBackground(new Color(51, 51, 51));
 		frmFinanceManager.setTitle("Finance Manager");
-		frmFinanceManager.setBounds(100, 100, 800, 600);
+		frmFinanceManager.setBounds(100, 100, 1024, 768);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
 		
