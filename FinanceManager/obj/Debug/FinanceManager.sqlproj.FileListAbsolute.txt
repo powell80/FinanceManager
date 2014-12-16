@@ -1,0 +1,9 @@
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\bin\Debug\FinanceManager.dacpac
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\bin\Debug\FinanceManager.dll
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\bin\Debug\FinanceManager.pdb
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\Model.xml
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\refactor.xml
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\postdeploy.sql
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\predeploy.sql
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\FinanceManager.dll
+C:\Users\Tyler\workspace\FinanceManager\FinanceManager\obj\Debug\FinanceManager.pdb
