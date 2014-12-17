@@ -14,7 +14,9 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					JDBCExample db = new JDBCExample();
 					MainWindow window = new MainWindow();
+					db.createDB();
 					window.frmFinanceManager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
