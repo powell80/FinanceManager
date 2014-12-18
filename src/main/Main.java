@@ -7,6 +7,8 @@ import java.awt.EventQueue;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import database.CreateDB;
+
 public class Main {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
@@ -14,9 +16,9 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JDBCExample db = new JDBCExample();
+					CreateDB db = new CreateDB();
 					MainWindow window = new MainWindow();
-					db.createDB();
+					db.WriteDB();
 					window.frmFinanceManager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
