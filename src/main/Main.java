@@ -1,5 +1,6 @@
 package main;
 
+import gui.LoginWindow;
 import gui.MainWindow;
 
 import java.awt.EventQueue;
@@ -18,7 +19,9 @@ public class Main {
 				try {
 					CreateDB db = new CreateDB();
 					MainWindow window = new MainWindow();
+					LoginWindow login = new LoginWindow();
 					db.WriteDB();
+					login.frame.setVisible(true);
 					window.frmFinanceManager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

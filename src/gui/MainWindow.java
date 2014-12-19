@@ -33,7 +33,7 @@ public class MainWindow {
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.getContentPane().setBackground(new Color(51, 51, 51));
 		frmFinanceManager.setTitle("Finance Manager");
-		frmFinanceManager.setBounds(100, 100, 1024, 768);
+		frmFinanceManager.setBounds(100, 100, 1280, 800);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
 		

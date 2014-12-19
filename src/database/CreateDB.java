@@ -16,6 +16,7 @@ public class CreateDB {
 		String dbName = DBNAME;
 		Connection conn = null;
 		Statement stmt = null;
+
 		
 		//sql statements to create database
 		String sqlTableUSER = 
@@ -25,6 +26,10 @@ public class CreateDB {
 				"last VARCHAR(100)," +
 				"age INTEGER, " +
 				"anincome INTEGER)";
+		
+		String sqlTableEXPENDETURES = 
+				"";
+		
 		
 		try{
 			//STEP 1: Register JDBC Driver
