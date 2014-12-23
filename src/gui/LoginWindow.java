@@ -12,10 +12,12 @@ import javax.swing.JButton;
 import java.awt.Button;
 import javax.swing.JCheckBox;
 import javax.swing.JProgressBar;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
 
 public class LoginWindow {
 
-	public JFrame frame;
+	public JFrame frmLogin;
 	private JTextField textField;
 	private JPasswordField passwordField;
 
@@ -30,35 +32,38 @@ public class LoginWindow {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 567, 265);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmLogin = new JFrame();
+		frmLogin.setResizable(false);
+		frmLogin.setTitle("Login");
+		frmLogin.setAlwaysOnTop(true);
+		frmLogin.setBounds(200, 200, 567, 265);
+		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.getContentPane().setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username:");
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblUsername.setBounds(63, 46, 119, 25);
-		frame.getContentPane().add(lblUsername);
+		frmLogin.getContentPane().add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPassword.setBounds(73, 120, 109, 16);
-		frame.getContentPane().add(lblPassword);
+		frmLogin.getContentPane().add(lblPassword);
 		
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		textField.setBounds(182, 43, 243, 31);
-		frame.getContentPane().add(textField);
+		frmLogin.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		passwordField.setBounds(182, 113, 241, 31);
-		frame.getContentPane().add(passwordField);
+		frmLogin.getContentPane().add(passwordField);
 		
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 20));
 		btnNewButton.setBounds(193, 171, 178, 47);
-		frame.getContentPane().add(btnNewButton);
+		frmLogin.getContentPane().add(btnNewButton);
 	}
 }

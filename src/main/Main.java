@@ -21,7 +21,7 @@ public class Main {
 					MainWindow window = new MainWindow();
 					LoginWindow login = new LoginWindow();
 					db.WriteDB();
-					login.frame.setVisible(true);
+					login.frmLogin.setVisible(true);
 					window.frmFinanceManager.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

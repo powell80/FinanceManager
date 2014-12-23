@@ -46,3 +46,39 @@ CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(10
 12-23 00:16:06 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
 CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:24:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:26:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:28:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:29:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:29:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:29:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:29:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:30:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:30:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:32:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:32:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
+12-23 00:32:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),age INTEGER, anincome INTEGER) [42101-176]
