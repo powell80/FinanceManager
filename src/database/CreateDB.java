@@ -2,18 +2,18 @@ package database;
 
 //STEP 1. Import required packages
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.*;
 
 public class CreateDB {
 
 	private static final String DRIVER = "org.h2.Driver";
-	//private static final String PROTOCOL = "";
 	private static final String DBNAME = "FINANCE";
+	private static final String DB_URL = "jdbc:h2:" + DBNAME;
+	private static final String USER = "sa";
+	private static final String ATTRIBUTE = "";
 	
 	public void WriteDB() throws SQLException{
 		//database name and connection
-		String dbName = DBNAME;
 		Connection conn = null;
 		Statement stmt = null;
 
@@ -43,13 +43,13 @@ public class CreateDB {
 		try{
 			//STEP 2: Open a Connection
 			System.out.println("Creating new Database...");
-			conn = DriverManager.getConnection("jdbc:h2:" + dbName, "sa", "");
+			conn = DriverManager.getConnection(DB_URL, USER, ATTRIBUTE);
 			stmt = conn.createStatement();
 			//create database and connect
-			System.out.println("Database " + dbName + " Created Successfully");
+			System.out.println("Database " + DBNAME + " Created Successfully");
 	
 			stmt.executeUpdate(sqlTableUSER);
-			System.out.println("Created table in Database " + dbName);	
+			System.out.println("Created table in Database " + DBNAME);	
 
 		}catch (SQLException se) {
 			if (se.getErrorCode() == 42101){
