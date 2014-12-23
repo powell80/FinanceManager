@@ -28,7 +28,8 @@ public class CreateDB {
 				"anincome INTEGER)";
 		
 		String sqlTableEXPENDETURES = 
-				"";
+				"CREATE TABLE EXPENDETURES" +
+				"(";
 		
 		
 		try{
