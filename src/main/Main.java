@@ -2,6 +2,7 @@ package main;
 
 import gui.LoginWindow;
 import gui.MainWindow;
+import gui.NewUser;
 
 import java.awt.EventQueue;
 
@@ -20,9 +21,11 @@ public class Main {
 					CreateDB db = new CreateDB();
 					MainWindow window = new MainWindow();
 					LoginWindow login = new LoginWindow();
+					NewUser nUser = new NewUser();
 					db.WriteDB();
-					login.frmLogin.setVisible(true);
-					window.frmFinanceManager.setVisible(true);
+				//	login.frmLogin.setVisible(true);
+				//	window.frmFinanceManager.setVisible(true);
+					nUser.frmCreateUser.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

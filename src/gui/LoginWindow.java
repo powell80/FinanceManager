@@ -1,19 +1,11 @@
 package gui;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-import java.awt.Button;
-import javax.swing.JCheckBox;
-import javax.swing.JProgressBar;
-import java.awt.Dialog.ModalExclusionType;
-import java.awt.Window.Type;
 
 public class LoginWindow {
 

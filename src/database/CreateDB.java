@@ -2,7 +2,6 @@ package database;
 
 //STEP 1. Import required packages
 import java.sql.*;
-import java.math.*;
 
 public class CreateDB {
 
