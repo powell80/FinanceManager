@@ -2,7 +2,7 @@ package main;
 
 import gui.LoginWindow;
 import gui.MainWindow;
-import gui.NewUser;
+import gui.NewUserWindow;
 
 import java.awt.EventQueue;
 
@@ -21,7 +21,7 @@ public class Main {
 					CreateDB db = new CreateDB();
 					MainWindow window = new MainWindow();
 					LoginWindow login = new LoginWindow();
-					NewUser nUser = new NewUser();
+					NewUserWindow nUser = new NewUserWindow();
 					db.WriteDB();
 				//	login.frmLogin.setVisible(true);
 				//	window.frmFinanceManager.setVisible(true);
