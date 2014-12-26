@@ -10,11 +10,13 @@ public class CreateDB {
 	private static final String DB_URL = "jdbc:h2:" + DBNAME;
 	private static final String USER = "sa";
 	private static final String ATTRIBUTE = "";
+	Connection conn = null;
+	Statement stmt = null;
 	
 	public void WriteDB() throws SQLException{
 		//database name and connection
-		Connection conn = null;
-		Statement stmt = null;
+		//Connection conn = null;
+		//Statement stmt = null;
 
 		
 		//sql statements to create database
@@ -23,8 +25,7 @@ public class CreateDB {
 				"(userid VARCHAR(30) not NULL," +
 				"first VARCHAR(100)," +
 				"last VARCHAR(100)," +
-				"age INTEGER, " +
-				"anincome INTEGER)";
+				"pass VARCHAR(30) not NULL,)";
 		
 		String sqlTableEXPENDETURES = 
 				"CREATE TABLE EXPENDETURES" +
@@ -73,6 +74,24 @@ public class CreateDB {
                 se.printStackTrace();
             } // end finally try
         } // end try
-    } // end main 	
+    } // end main 
+	
+	public void Insertstmt(String sqlStmt){
+		
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, ATTRIBUTE);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			stmt = conn.createStatement();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }//end class
 

@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -18,13 +17,14 @@ import javax.swing.Action;
 
 public class NewUserWindow implements ActionListener{
 
+	public JButton btnCreateUser;
 	public JFrame frmCreateUser;
 	private JTextField txtFName;
 	private JTextField txtLName;
 	private JPasswordField txtPass;
 	private JPasswordField txtConfPass;
 	private JTextField txtUsername;
-
+	
 	/**
 	 * Create the application.
 	 * @wbp.parser.entryPoint
@@ -105,7 +105,7 @@ public class NewUserWindow implements ActionListener{
 		frmCreateUser.getContentPane().add(txtConfPass);
 		
 		//Create user submit button
-		JButton btnCreateUser = new JButton("Create User");
+		btnCreateUser = new JButton("Create User");
 		btnCreateUser.addActionListener(this);
 		btnCreateUser.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCreateUser.setBounds(51, 279, 200, 31);
@@ -118,8 +118,16 @@ public class NewUserWindow implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
-		// TODO Auto-generated method stub
-		System.out.println("Clicked");
-		
+		if(buttonPressed.getSource() == btnCreateUser){
+			System.out.println("Create User Button Pressed");
+			//nUser.addNewUser(txtFName.getText(), txtLName.getText(), txtUsername.getText(), txtPass.getPassword(), txtConfPass.getPassword());
+			String sqlNewUser;
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			sqlNewUser = "INSERT INTO ";
+		}
 	}
 }
