@@ -17,6 +17,7 @@ public class Main {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				try {
 					CreateDB db = new CreateDB();
 					MainWindow window = new MainWindow();
@@ -25,7 +26,7 @@ public class Main {
 					db.WriteDB();
 				//	login.frmLogin.setVisible(true);
 				//	window.frmFinanceManager.setVisible(true);
-					nUser.frmCreateUser.setVisible(true);
+					nUser.initialize();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

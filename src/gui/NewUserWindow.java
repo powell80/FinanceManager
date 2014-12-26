@@ -11,6 +11,10 @@ import java.awt.Color;
 import java.awt.Window.Type;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 public class NewUserWindow {
 
@@ -20,9 +24,11 @@ public class NewUserWindow {
 	private JPasswordField txtPass;
 	private JPasswordField txtConfPass;
 	private JTextField txtUsername;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public NewUserWindow() {
 		initialize();
@@ -30,8 +36,9 @@ public class NewUserWindow {
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
-	private void initialize() {
+		public void initialize() {
 		frmCreateUser = new JFrame();
 		frmCreateUser.setTitle("Create User");
 		frmCreateUser.setResizable(false);
@@ -99,8 +106,27 @@ public class NewUserWindow {
 		frmCreateUser.getContentPane().add(txtConfPass);
 		
 		JButton btnNewButton = new JButton("Create User");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnNewButton.setAction(action);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(51, 279, 200, 31);
 		frmCreateUser.getContentPane().add(btnNewButton);
+		
+		
+		
+		frmCreateUser.setVisible(true);
+	}
+		
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
