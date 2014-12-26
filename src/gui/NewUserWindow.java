@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
-public class NewUserWindow {
+public class NewUserWindow implements ActionListener{
 
 	public JFrame frmCreateUser;
 	private JTextField txtFName;
@@ -106,7 +106,7 @@ public class NewUserWindow {
 		
 		//Create user submit button
 		JButton btnCreateUser = new JButton("Create User");
-		btnCreateUser.addActionListener();
+		btnCreateUser.addActionListener(this);
 		btnCreateUser.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCreateUser.setBounds(51, 279, 200, 31);
 		frmCreateUser.getContentPane().add(btnCreateUser);
@@ -114,5 +114,12 @@ public class NewUserWindow {
 		
 		//display the window on the screen
 		frmCreateUser.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent buttonPressed) {
+		// TODO Auto-generated method stub
+		System.out.println("Clicked");
+		
 	}
 }
