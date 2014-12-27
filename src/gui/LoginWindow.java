@@ -17,13 +17,13 @@ public class LoginWindow {
 	 * Create the application.
 	 */
 	public LoginWindow() {
-		initialize();
+		//initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frmLogin = new JFrame();
 		frmLogin.setResizable(false);
 		frmLogin.setTitle("Login");
@@ -57,5 +57,7 @@ public class LoginWindow {
 		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 20));
 		btnNewButton.setBounds(193, 171, 178, 47);
 		frmLogin.getContentPane().add(btnNewButton);
+		
+		frmLogin.setVisible(true);
 	}
 }

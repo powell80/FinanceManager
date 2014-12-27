@@ -1,22 +1,29 @@
 package gui;
 
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Window.Type;
+
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 
 public class NewUserWindow implements ActionListener{
 
+	LoginWindow login = new LoginWindow();
 	public JButton btnCreateUser;
 	public JFrame frmCreateUser;
 	private JTextField txtFName;
@@ -118,16 +125,38 @@ public class NewUserWindow implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
+		char[] password;
+		char[] confirmPass;
+		
+		
 		if(buttonPressed.getSource() == btnCreateUser){
 			System.out.println("Create User Button Pressed");
 			//nUser.addNewUser(txtFName.getText(), txtLName.getText(), txtUsername.getText(), txtPass.getPassword(), txtConfPass.getPassword());
 			String sqlNewUser;
+			password = txtPass.getPassword();
+			confirmPass = txtConfPass.getPassword();
+			
+			if((Arrays.equals(password, confirmPass))){
+					System.out.println("Passwords match");
+					System.out.println("first Pass: " + password.toString());
+					System.out.println("second Pass: " + confirmPass.toString());
+					login.initialize();
+					frmCreateUser.dispose();
+				}
+			else{
+				System.out.println("Invalid password");
+				txtPass.setText(null);
+				txtConfPass.setText(null);
+			}
+			
+			sqlNewUser = "INSERT INTO USER"
+					+ "(";
 			System.out.println();
 			System.out.println();
 			System.out.println();
 			System.out.println();
 			System.out.println();
-			sqlNewUser = "INSERT INTO ";
+			
 		}
 	}
 }

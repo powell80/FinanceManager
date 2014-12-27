@@ -3,7 +3,7 @@ package database;
 //STEP 1. Import required packages
 import java.sql.*;
 
-public class CreateDB {
+public class DBInterface {
 
 	private static final String DRIVER = "org.h2.Driver";
 	private static final String DBNAME = "FINANCE";

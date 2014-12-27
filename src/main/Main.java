@@ -9,7 +9,7 @@ import java.awt.EventQueue;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import database.CreateDB;
+import database.DBInterface;
 
 public class Main {
 
@@ -19,7 +19,7 @@ public class Main {
 			public void run() {
 				
 				try {
-					CreateDB db = new CreateDB();
+					DBInterface db = new DBInterface();
 					MainWindow window = new MainWindow();
 					LoginWindow login = new LoginWindow();
 					NewUserWindow nUser = new NewUserWindow();
