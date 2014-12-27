@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 
 public class MainWindow {
@@ -15,7 +17,7 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
-		//initialize();
+		initialize();
 	}
 
 	/**
@@ -23,11 +25,23 @@ public class MainWindow {
 	 */
 	void initialize() {
 		frmFinanceManager = new JFrame();
-		frmFinanceManager.getContentPane().setBackground(new Color(51, 51, 51));
+		frmFinanceManager.getContentPane().setBackground(Color.WHITE);
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 1280, 800);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(967, 12, 301, 219);
+		frmFinanceManager.getContentPane().add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(967, 243, 301, 107);
+		frmFinanceManager.getContentPane().add(panel_1);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBounds(706, 12, -543, 423);
+		frmFinanceManager.getContentPane().add(tabbedPane_1);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmFinanceManager.setJMenuBar(menuBar);

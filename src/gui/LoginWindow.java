@@ -19,8 +19,7 @@ public class LoginWindow implements ActionListener{
 	private JTextField textField;
 	private JPasswordField passwordField;
 	public JButton btnLogin;
-	public MainWindow main = new MainWindow();
-	DBInterface dbint = new DBInterface();
+
 	/**
 	 * Create the application.
 	 */
@@ -32,6 +31,7 @@ public class LoginWindow implements ActionListener{
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
+		MainWindow main = new MainWindow();
 		frmLogin = new JFrame();
 		frmLogin.setResizable(false);
 		frmLogin.setTitle("Login");
@@ -72,6 +72,7 @@ public class LoginWindow implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent buttonPressed) {
+		DBInterface dbint = new DBInterface();
 		String username;
 		String password;
 		String sqlstmt;

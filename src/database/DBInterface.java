@@ -14,8 +14,6 @@ public class DBInterface {
 	private static final String DB_URL = "jdbc:h2:" + DBNAME;
 	private static final String USER = "sa";
 	private static final String ATTRIBUTE = "";
-	LoginWindow login = new LoginWindow();
-	NewUserWindow nUser = new NewUserWindow();
 	Connection conn = null;
 	Statement stmt = null;
 	
@@ -23,6 +21,8 @@ public class DBInterface {
 		//database name and connection
 		//Connection conn = null;
 		//Statement stmt = null;
+		LoginWindow login = new LoginWindow();
+		NewUserWindow nUser = new NewUserWindow();
 
 		
 		//sql statements to create database
