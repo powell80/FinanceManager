@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
+import database.DBInterface;
+
 public class LoginWindow implements ActionListener{
 
 	public JFrame frmLogin;
@@ -18,6 +20,7 @@ public class LoginWindow implements ActionListener{
 	private JPasswordField passwordField;
 	public JButton btnLogin;
 	public MainWindow main = new MainWindow();
+	DBInterface dbint = new DBInterface();
 	/**
 	 * Create the application.
 	 */
@@ -69,8 +72,16 @@ public class LoginWindow implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent buttonPressed) {
+		String username;
+		String password;
+		String sqlstmt;
+		
 		if(buttonPressed.getSource() == btnLogin){
 			System.out.println("Login Button Pressed");
+			
+			
+			
+			dbint.Insertstmt(null);
 		}
 	}
 }
