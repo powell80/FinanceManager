@@ -2,17 +2,22 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 
-public class LoginWindow {
+public class LoginWindow implements ActionListener{
 
 	public JFrame frmLogin;
 	private JTextField textField;
 	private JPasswordField passwordField;
-
+	public JButton btnLogin;
+	public MainWindow main = new MainWindow();
 	/**
 	 * Create the application.
 	 */
@@ -53,11 +58,19 @@ public class LoginWindow {
 		passwordField.setBounds(182, 113, 241, 31);
 		frmLogin.getContentPane().add(passwordField);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 20));
-		btnNewButton.setBounds(193, 171, 178, 47);
-		frmLogin.getContentPane().add(btnNewButton);
+		btnLogin = new JButton("Login");
+		btnLogin.addActionListener(this);
+		btnLogin.setFont(new Font("Dialog", Font.BOLD, 20));
+		btnLogin.setBounds(193, 171, 178, 47);
+		frmLogin.getContentPane().add(btnLogin);
 		
 		frmLogin.setVisible(true);
+		main.initialize();
+	}
+	
+	public void actionPerformed(ActionEvent buttonPressed) {
+		if(buttonPressed.getSource() == btnLogin){
+			System.out.println("Login Button Pressed");
+		}
 	}
 }

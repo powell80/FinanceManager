@@ -15,13 +15,13 @@ public class MainWindow {
 	 * Create the application.
 	 */
 	public MainWindow() {
-		initialize();
+		//initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	void initialize() {
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.getContentPane().setBackground(new Color(51, 51, 51));
 		frmFinanceManager.setTitle("Finance Manager");
@@ -55,5 +55,7 @@ public class MainWindow {
 		
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
+		
+		frmFinanceManager.setVisible(true);
 	}
 }

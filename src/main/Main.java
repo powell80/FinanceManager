@@ -20,13 +20,7 @@ public class Main {
 				
 				try {
 					DBInterface db = new DBInterface();
-					MainWindow window = new MainWindow();
-					LoginWindow login = new LoginWindow();
-					NewUserWindow nUser = new NewUserWindow();
 					db.WriteDB();
-				//	login.frmLogin.setVisible(true);
-				//	window.frmFinanceManager.setVisible(true);
-					nUser.initialize();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

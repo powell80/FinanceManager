@@ -1,5 +1,9 @@
 package database;
 
+import gui.LoginWindow;
+import gui.NewUserWindow;
+
+
 //STEP 1. Import required packages
 import java.sql.*;
 
@@ -10,6 +14,8 @@ public class DBInterface {
 	private static final String DB_URL = "jdbc:h2:" + DBNAME;
 	private static final String USER = "sa";
 	private static final String ATTRIBUTE = "";
+	LoginWindow login = new LoginWindow();
+	NewUserWindow nUser = new NewUserWindow();
 	Connection conn = null;
 	Statement stmt = null;
 	
@@ -50,11 +56,13 @@ public class DBInterface {
 			System.out.println("Database " + DBNAME + " Created Successfully");
 	
 			stmt.executeUpdate(sqlTableUSER);
-			System.out.println("Created table in Database " + DBNAME);	
+			System.out.println("Created table in Database " + DBNAME);
+			nUser.initialize();
 
 		}catch (SQLException se) {
 			if (se.getErrorCode() == 42101){
 				System.out.println(se.getMessage());
+				login.initialize();
 			}else
             //Handle errors for JDBC
             se.printStackTrace();
