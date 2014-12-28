@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Rectangle;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,6 +15,19 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.UIManager;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+
+import java.awt.Component;
+
+import javax.swing.Box;
+
+
+import java.awt.Dimension;
 
 
 public class MainWindow {
@@ -21,6 +36,7 @@ public class MainWindow {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	private Rectangle rect;
 
 	/**
 	 * Create the application.
@@ -33,12 +49,13 @@ public class MainWindow {
 	 * Initialize the contents of the frame.
 	 */
 	void initialize() {
+		Calender cal = new Calender();
 		frmFinanceManager = new JFrame();
-		frmFinanceManager.getContentPane().setBackground(Color.WHITE);
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 1280, 800);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
+		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(12, 12, 729, 560);
@@ -50,7 +67,7 @@ public class MainWindow {
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(12, 12, 240, 254);
-		panel.setBorder(new TitledBorder(null, "Input", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Add Expense", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_2.add(panel);
 		panel.setLayout(null);
 		
@@ -77,16 +94,13 @@ public class MainWindow {
 		btnSubmit.setBounds(102, 192, 117, 25);
 		panel.add(btnSubmit);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(304, 12, 301, 107);
-		panel_2.add(panel_1);
-		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(304, 145, 301, 107);
-		panel_2.add(panel_4);
-		
 		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("Monthly", null, panel_3, null);
+		panel_3.setLayout(null);
+		Calender calender = new Calender();
+		calender.setBounds(10, 71, 630, 450);
+		panel_3.add(calender);
+		tabbedPane.addTab("Monthly Calender", null, panel_3, null);
+		
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmFinanceManager.setJMenuBar(menuBar);
