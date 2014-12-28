@@ -62,7 +62,7 @@ public class DBInterface {
 		}catch (SQLException se) {
 			if (se.getErrorCode() == 42101){
 				System.out.println(se.getMessage());
-				login.initialize();
+				//login.initialize();
 			}else
             //Handle errors for JDBC
             se.printStackTrace();
@@ -99,6 +99,7 @@ public class DBInterface {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 	}
 }//end class

@@ -1,0 +1,27 @@
+12-27 13:04:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 13:20:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 13:27:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:04:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:08:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:12:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:13:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:31:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]
+12-27 14:34:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userid VARCHAR(30) not NULL,first VARCHAR(100),last VARCHAR(100),pass VARCHAR(30) not NULL,) [42101-176]

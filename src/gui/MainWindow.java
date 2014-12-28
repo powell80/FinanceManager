@@ -7,11 +7,20 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JButton;
 
 
 public class MainWindow {
 
 	public JFrame frmFinanceManager;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 
 	/**
 	 * Create the application.
@@ -31,17 +40,53 @@ public class MainWindow {
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
 		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(12, 12, 729, 560);
+		frmFinanceManager.getContentPane().add(tabbedPane);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("Main", null, panel_2, null);
+		panel_2.setLayout(null);
+		
 		JPanel panel = new JPanel();
-		panel.setBounds(967, 12, 301, 219);
-		frmFinanceManager.getContentPane().add(panel);
+		panel.setBounds(12, 12, 240, 254);
+		panel.setBorder(new TitledBorder(null, "Input", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_2.add(panel);
+		panel.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(105, 36, 114, 25);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(105, 85, 114, 25);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(105, 137, 114, 25);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setBounds(32, 41, 70, 15);
+		panel.add(lblAmount);
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(102, 192, 117, 25);
+		panel.add(btnSubmit);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(967, 243, 301, 107);
-		frmFinanceManager.getContentPane().add(panel_1);
+		panel_1.setBounds(304, 12, 301, 107);
+		panel_2.add(panel_1);
 		
-		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane_1.setBounds(706, 12, -543, 423);
-		frmFinanceManager.getContentPane().add(tabbedPane_1);
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(304, 145, 301, 107);
+		panel_2.add(panel_4);
+		
+		JPanel panel_3 = new JPanel();
+		tabbedPane.addTab("Monthly", null, panel_3, null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmFinanceManager.setJMenuBar(menuBar);
