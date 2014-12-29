@@ -58,7 +58,7 @@ public class MainWindow {
 		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(12, 12, 729, 560);
+		tabbedPane.setBounds(10, 11, 653, 560);
 		frmFinanceManager.getContentPane().add(tabbedPane);
 		
 		JPanel panel_2 = new JPanel();
