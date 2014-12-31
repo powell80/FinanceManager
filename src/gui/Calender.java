@@ -36,15 +36,15 @@ import javax.swing.border.MatteBorder;
 	                    Border border = null;
 	                    if (row < 4) {
 	                        if (col < 6) {
-	                            border = new MatteBorder(3, 3, 0, 0, Color.GRAY);
+	                            border = new MatteBorder(1, 1, 0, 0, Color.GRAY);
 	                        } else {
-	                            border = new MatteBorder(3, 3, 0, 3, Color.GRAY);
+	                            border = new MatteBorder(1, 1, 0, 1, Color.GRAY);
 	                        }
 	                    } else {
 	                        if (col < 6) {
-	                           border = new MatteBorder(3, 3, 3, 0, Color.GRAY);
+	                           border = new MatteBorder(1, 1, 1, 0, Color.GRAY);
 	                        } else {
-	                           border = new MatteBorder(3, 3, 3, 3, Color.GRAY);
+	                           border = new MatteBorder(1, 1, 1, 1, Color.GRAY);
 	                        }
 	                    }
 	                    cellPane.setBorder(border);
@@ -62,7 +62,7 @@ import javax.swing.border.MatteBorder;
 		                @Override
 		                public void mouseEntered(MouseEvent e) {
 		                    defaultBackground = getBackground();
-		                    setBackground(Color.BLUE);
+		                    setBackground(Color.RED);
 		                }
 
 		                @Override

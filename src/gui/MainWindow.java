@@ -28,13 +28,16 @@ import javax.swing.Box;
 
 
 import java.awt.Dimension;
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JRadioButton;
 
 
 public class MainWindow {
 
 	public JFrame frmFinanceManager;
 	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textField_2;
 	private Rectangle rect;
 
@@ -66,33 +69,63 @@ public class MainWindow {
 		panel_2.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 12, 240, 254);
+		panel.setBounds(12, 12, 262, 219);
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Add Expense", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_2.add(panel);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(105, 36, 114, 25);
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(105, 85, 114, 25);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
-		
 		textField_2 = new JTextField();
-		textField_2.setBounds(105, 137, 114, 25);
+		textField_2.setBounds(61, 93, 191, 66);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
 		JLabel lblAmount = new JLabel("Amount");
-		lblAmount.setBounds(32, 41, 70, 15);
+		lblAmount.setBounds(10, 62, 44, 15);
 		panel.add(lblAmount);
 		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(102, 192, 117, 25);
+		btnSubmit.setBounds(135, 170, 117, 25);
 		panel.add(btnSubmit);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
+		comboBox.setBounds(61, 21, 191, 25);
+		panel.add(comboBox);
+		
+		JLabel lblCatagory = new JLabel("Catagory");
+		lblCatagory.setBounds(10, 26, 55, 15);
+		panel.add(lblCatagory);
+		
+		JLabel lblComment = new JLabel("Comment");
+		lblComment.setBounds(10, 93, 55, 15);
+		panel.add(lblComment);
+		
+		textField = new JTextField();
+		textField.setBounds(61, 57, 191, 25);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBounds(288, 12, 240, 120);
+		panel_2.add(tabbedPane_1);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane_1.addTab("Total", null, panel_1, null);
+		
+		JRadioButton rdbtnDay = new JRadioButton("Day");
+		panel_1.add(rdbtnDay);
+		
+		JRadioButton rdbtnWeek = new JRadioButton("Week");
+		panel_1.add(rdbtnWeek);
+		
+		JRadioButton rdbtnMonth = new JRadioButton("Month");
+		panel_1.add(rdbtnMonth);
+		
+		JPanel panel_4 = new JPanel();
+		tabbedPane_1.addTab("Spending", null, panel_4, null);
+		
+		JPanel panel_5 = new JPanel();
+		tabbedPane_1.addTab("Income", null, panel_5, null);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
