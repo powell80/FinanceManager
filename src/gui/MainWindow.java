@@ -97,7 +97,7 @@ public class MainWindow {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setToolTipText("Select from a list of categories for each expense you make");
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
+		//comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
 		comboBox.setBounds(90, 105, 191, 25);
 		panel.add(comboBox);
 		
@@ -147,27 +147,37 @@ public class MainWindow {
 		radioGroup.add(rdbtnDay);
 		radioGroup.add(rdbtnWeek);
 		radioGroup.add(rdbtnMonth);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBorder(new TitledBorder(null, "Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGap(39)
-					.addComponent(rdbtnDay)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(rdbtnWeek)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(rdbtnMonth)
-					.addContainerGap(58, Short.MAX_VALUE))
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(39)
+							.addComponent(rdbtnDay)
+							.addGap(18)
+							.addComponent(rdbtnWeek)
+							.addGap(18)
+							.addComponent(rdbtnMonth))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(60)
+							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(45, Short.MAX_VALUE))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-						.addComponent(rdbtnDay)
 						.addComponent(rdbtnWeek)
+						.addComponent(rdbtnDay)
 						.addComponent(rdbtnMonth))
-					.addGap(69))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		panel_1.setLayout(gl_panel_1);
 		

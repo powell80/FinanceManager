@@ -79,10 +79,6 @@ public class LoginWindow implements ActionListener{
 		
 		if(buttonPressed.getSource() == btnLogin){
 			System.out.println("Login Button Pressed");
-			
-			
-			
-			dbint.Insertstmt(null);
 		}
 	}
 }

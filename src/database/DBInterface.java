@@ -15,7 +15,7 @@ public class DBInterface {
 	private static final String USER = "sa";
 	private static final String ATTRIBUTE = "";
 	Connection conn = null;
-	Statement stmt = null;
+	public Statement stmt = null;
 	
 	public void WriteDB() throws SQLException{
 		//database name and connection
@@ -28,14 +28,15 @@ public class DBInterface {
 		//sql statements to create database
 		String sqlTableUSER = 
 				"CREATE TABLE USER" + 
-				"(userid VARCHAR(30) not NULL," +
-				"first VARCHAR(100)," +
-				"last VARCHAR(100)," +
-				"pass VARCHAR(30) not NULL,)";
+				"(userID char(11)," +
+				"userFirstName VARCHAR(100) not NULL," +
+				"userLastName VARCHAR(100) not NULL," +
+				"CONSTRAINT PKUSER PRIMARY KEY (userID))";
 		
 		String sqlTableEXPENDETURES = 
 				"CREATE TABLE EXPENDETURES" +
-				"(";
+				"(ExpID "
+				+ "";
 		
 		
 		try{
@@ -84,7 +85,7 @@ public class DBInterface {
         } // end try
     } // end main 
 	
-	public void Insertstmt(String sqlStmt){
+	public Statement dbConnect(){
 		
 		try {
 			conn = DriverManager.getConnection(DB_URL, USER, ATTRIBUTE);
@@ -94,13 +95,11 @@ public class DBInterface {
 		}
 		try {
 			stmt = conn.createStatement();
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+		return stmt;
 	}
 }//end class
 

@@ -16,23 +16,28 @@ import javax.swing.JPasswordField;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.SwingConstants;
 
+import com.mysql.jdbc.Statement;
+
+import database.DBInterface;
+
 public class NewUserWindow implements ActionListener{
 
 	LoginWindow login = new LoginWindow();
 	MainWindow main = new MainWindow();
+	DBInterface DBinter = new DBInterface();
 	public JButton btnCreateUser;
 	public JFrame frmCreateUser;
 	private JTextField txtFName;
 	private JTextField txtLName;
-	private JPasswordField txtPass;
-	private JPasswordField txtConfPass;
-	private JTextField txtUsername;
+	
 	
 	/**
 	 * Create the application.
@@ -51,7 +56,7 @@ public class NewUserWindow implements ActionListener{
 		frmCreateUser.setTitle("Create User");
 		frmCreateUser.setResizable(false);
 		frmCreateUser.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 12));
-		frmCreateUser.setBounds(100, 100, 638, 366);
+		frmCreateUser.setBounds(100, 100, 628, 231);
 		frmCreateUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCreateUser.getContentPane().setLayout(null);
 		
@@ -67,24 +72,6 @@ public class NewUserWindow implements ActionListener{
 		lblLastName.setBounds(40, 99, 200, 22);
 		frmCreateUser.getContentPane().add(lblLastName);
 		
-		JLabel lblUsername = new JLabel("Desired Username");
-		lblUsername.setForeground(Color.BLACK);
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblUsername.setBounds(40, 142, 200, 22);
-		frmCreateUser.getContentPane().add(lblUsername);
-		
-		JLabel lblPass = new JLabel("Password");
-		lblPass.setForeground(Color.BLACK);
-		lblPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPass.setBounds(40, 185, 200, 22);
-		frmCreateUser.getContentPane().add(lblPass);
-		
-		JLabel lblConfPass = new JLabel("Confirm Password");
-		lblConfPass.setForeground(Color.BLACK);
-		lblConfPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblConfPass.setBounds(40, 228, 200, 22);
-		frmCreateUser.getContentPane().add(lblConfPass);
-		
 		txtFName = new JTextField();
 		txtFName.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtFName.setBounds(274, 52, 241, 31);
@@ -97,28 +84,12 @@ public class NewUserWindow implements ActionListener{
 		txtLName.setBounds(274, 95, 241, 31);
 		frmCreateUser.getContentPane().add(txtLName);
 		
-		txtUsername = new JTextField();
-		txtUsername.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtUsername.setColumns(10);
-		txtUsername.setBounds(274, 138, 241, 31);
-		frmCreateUser.getContentPane().add(txtUsername);
-		
-		txtPass = new JPasswordField();
-		txtPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtPass.setBounds(276, 181, 239, 31);
-		frmCreateUser.getContentPane().add(txtPass);
-		
-		txtConfPass = new JPasswordField();
-		txtConfPass.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtConfPass.setBounds(276, 224, 239, 31);
-		frmCreateUser.getContentPane().add(txtConfPass);
-		
 		//Create user submit button
 		btnCreateUser = new JButton("Create User");
 		btnCreateUser.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnCreateUser.addActionListener(this);
 		btnCreateUser.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCreateUser.setBounds(40, 293, 200, 31);
+		btnCreateUser.setBounds(40, 149, 200, 31);
 		frmCreateUser.getContentPane().add(btnCreateUser);
 		
 		
@@ -130,40 +101,46 @@ public class NewUserWindow implements ActionListener{
 	public void actionPerformed(ActionEvent buttonPressed) {
 		char[] password;
 		char[] confirmPass;
+	
+		
 		
 		
 		if(buttonPressed.getSource() == btnCreateUser){
 			System.out.println("Create User Button Pressed");
 			//nUser.addNewUser(txtFName.getText(), txtLName.getText(), txtUsername.getText(), txtPass.getPassword(), txtConfPass.getPassword());
 			String sqlNewUser;
-			password = txtPass.getPassword();
-			confirmPass = txtConfPass.getPassword();
+			String sqlSelectUser;
+			String firstName = txtFName.getText();
+			String lastName = txtLName.getText();
+			String fName = null;
+			String lName = null;
+		
+			sqlNewUser = "INSERT INTO USER"
+					+ "(userid, userFirstName, userLastName)"
+					+ "VALUES (" + "'001'," + "'" + firstName + "'," + "'" + lastName + "'" + ")"; 
+			sqlSelectUser = "select userID, userFirstName, userLastName\n"
+							+ "from USER";
 			
-			if((Arrays.equals(password, confirmPass))){
-					System.out.println("Passwords match");
-					System.out.println("first Pass: " + password.toString());
-					System.out.println("second Pass: " + confirmPass.toString());
-					sqlNewUser = "INSERT INTO USER"
-							+ "(userid, first, last, pass)"
-							+ "VALUES (" + txtUsername.getText() + txtFName.getText() + txtLName.getText() + password.toString() + ")"; 
-					System.out.println("User added successfully");
-				//	main.initialize();
-					login.initialize();
-					frmCreateUser.dispose();
+			try{
+				DBinter.dbConnect().executeUpdate(sqlNewUser);
+				ResultSet rs;
+				rs = DBinter.dbConnect().executeQuery(sqlSelectUser);
+				while(rs.next()){
+					
+					fName = rs.getString("userFirstName");
+					lName = rs.getString("userLastName");
 				}
-			else{
-				System.out.println("Invalid password");
-				txtPass.setText(null);
-				txtConfPass.setText(null);
-				txtPass.hasFocus();
+				
+			
+			
+					System.out.println("User " + fName + " " + lName + " added successfully");
+				//	main.initialize();
+					frmCreateUser.dispose();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
 			}
-			
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			
 		}
 	}
 }
