@@ -28,10 +28,10 @@ public class DBInterface {
 		//sql statements to create database
 		String sqlTableUSER = 
 				"CREATE TABLE USER" + 
-				"(userID char(11)," +
+				"(userNo int NOT NULL AUTO_INCREMENT," +
 				"userFirstName VARCHAR(100) not NULL," +
 				"userLastName VARCHAR(100) not NULL," +
-				"CONSTRAINT PKUSER PRIMARY KEY (userID))";
+				"CONSTRAINT PKUSER PRIMARY KEY (userNo))";
 		
 		String sqlTableEXPENDETURES = 
 				"CREATE TABLE EXPENDETURES" +

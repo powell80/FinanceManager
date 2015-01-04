@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -10,37 +9,21 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.UIManager;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-
-import java.awt.Component;
-
-import javax.swing.Box;
-
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-
-import javax.swing.JList;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JRadioButton;
-import java.awt.TextArea;
-import javax.swing.JTextPane;
-import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTree;
+
+
+import database.DBInterface;
+
 import java.awt.Panel;
 
 
@@ -66,6 +49,7 @@ public class MainWindow {
 	void initialize() {
 		Calender cal = new Calender();
 		ButtonGroup radioGroup = new ButtonGroup();
+		DBInterface DBinter = new DBInterface();
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 1280, 800);
@@ -265,11 +249,13 @@ public class MainWindow {
 		JMenu mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
 		
-		
-		
 		frmFinanceManager.setVisible(true);
 		
-		
-		
+	}	
+		public void actionPerformed(ActionEvent buttonPressed) {
+			DBInterface dbint = new DBInterface();
+			
+			
+			
+		}
 	}
-}

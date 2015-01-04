@@ -24,6 +24,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.SwingConstants;
 
+import main.NewUser;
+
 import com.mysql.jdbc.Statement;
 
 import database.DBInterface;
@@ -33,10 +35,15 @@ public class NewUserWindow implements ActionListener{
 	LoginWindow login = new LoginWindow();
 	MainWindow main = new MainWindow();
 	DBInterface DBinter = new DBInterface();
+	NewUser newUser = new NewUser();
 	public JButton btnCreateUser;
 	public JFrame frmCreateUser;
+	private ResultSet rs;
 	private JTextField txtFName;
 	private JTextField txtLName;
+	private String fName = null, lName = null;
+	String sqlSelectUser = "select userNo, userFirstName, userLastName\n"
+			+ "from USER";
 	
 	
 	/**
@@ -44,7 +51,7 @@ public class NewUserWindow implements ActionListener{
 	 * @wbp.parser.entryPoint
 	 */
 	public NewUserWindow() {
-		//initialize();
+		initialize();
 	}
 
 	/**
@@ -99,48 +106,26 @@ public class NewUserWindow implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
-		char[] password;
-		char[] confirmPass;
-	
-		
-		
-		
+		//test if create user button was pressed
 		if(buttonPressed.getSource() == btnCreateUser){
 			System.out.println("Create User Button Pressed");
-			//nUser.addNewUser(txtFName.getText(), txtLName.getText(), txtUsername.getText(), txtPass.getPassword(), txtConfPass.getPassword());
-			String sqlNewUser;
-			String sqlSelectUser;
-			String firstName = txtFName.getText();
-			String lastName = txtLName.getText();
-			String fName = null;
-			String lName = null;
-		
-			sqlNewUser = "INSERT INTO USER"
-					+ "(userid, userFirstName, userLastName)"
-					+ "VALUES (" + "'001'," + "'" + firstName + "'," + "'" + lastName + "'" + ")"; 
-			sqlSelectUser = "select userID, userFirstName, userLastName\n"
-							+ "from USER";
+			newUser.createUser(txtFName.getText(), txtLName.getText());
 			
-			try{
-				DBinter.dbConnect().executeUpdate(sqlNewUser);
-				ResultSet rs;
-				rs = DBinter.dbConnect().executeQuery(sqlSelectUser);
+			
+			try {
+			rs = DBinter.dbConnect().executeQuery(sqlSelectUser);
+			
 				while(rs.next()){
 					
 					fName = rs.getString("userFirstName");
 					lName = rs.getString("userLastName");
 				}
-				
-			
-			
-					System.out.println("User " + fName + " " + lName + " added successfully");
-				//	main.initialize();
-					frmCreateUser.dispose();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
 			}
+			System.out.println("User " + fName + " " + lName + " added successfully");
+			frmCreateUser.dispose();
 		}
 	}
 }
