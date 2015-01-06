@@ -107,6 +107,7 @@ public class NewUserWindow implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
 		//test if create user button was pressed
+		int i = 1;
 		if(buttonPressed.getSource() == btnCreateUser){
 			System.out.println("Create User Button Pressed");
 			newUser.createUser(txtFName.getText(), txtLName.getText());
@@ -119,11 +120,14 @@ public class NewUserWindow implements ActionListener{
 					
 					fName = rs.getString("userFirstName");
 					lName = rs.getString("userLastName");
+					System.out.println( i + ". User: " + fName + " " + "lName");
+					i ++;
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println();
 			System.out.println("User " + fName + " " + lName + " added successfully");
 			frmCreateUser.dispose();
 		}
