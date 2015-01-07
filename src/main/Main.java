@@ -1,8 +1,6 @@
 package main;
 
-import gui.LoginWindow;
 import gui.MainWindow;
-import gui.NewUserWindow;
 
 import java.awt.EventQueue;
 
@@ -12,6 +10,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import database.DBInterface;
 
 public class Main {
+	static MainWindow mainWin = new MainWindow();
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -21,6 +20,7 @@ public class Main {
 				try {
 					DBInterface db = new DBInterface();
 					db.WriteDB();
+					mainWin.initialize();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

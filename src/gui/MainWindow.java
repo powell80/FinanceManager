@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Rectangle;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -14,42 +15,50 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-
+import main.Listener;
 import database.DBInterface;
 
 import java.awt.Panel;
+import java.sql.SQLException;
 
 
-public class MainWindow {
+public class MainWindow implements ActionListener{
 
 	public JFrame frmFinanceManager;
 	private JTextField textField;
 	private Rectangle rect;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	//public ActionListener buttonPressed;
 	
+	//button declarations 
+	private JButton btnSubmit;
 
 	/**
 	 * Create the application.
 	 */
 	public MainWindow() {
-		initialize();
+		//initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	void initialize() {
+	public void initialize() {
 		Calender cal = new Calender();
 		ButtonGroup radioGroup = new ButtonGroup();
 		DBInterface DBinter = new DBInterface();
+		Listener lis = new Listener();
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 1280, 800);
@@ -75,9 +84,11 @@ public class MainWindow {
 		lblAmount.setBounds(12, 73, 62, 15);
 		panel.add(lblAmount);
 		
-		JButton btnSubmit = new JButton("Submit");
+		btnSubmit  = new JButton("Submit");
+		btnSubmit.addActionListener(this);
 		btnSubmit.setBounds(164, 177, 117, 25);
 		panel.add(btnSubmit);
+		
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setToolTipText("Select from a list of categories for each expense you make");
@@ -251,11 +262,18 @@ public class MainWindow {
 		
 		frmFinanceManager.setVisible(true);
 		
-	}	
-		public void actionPerformed(ActionEvent buttonPressed) {
-			DBInterface dbint = new DBInterface();
-			
-			
-			
-		}
+		
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent buttonPressed) {
+		// TODO Auto-generated method stub
+		//test if create user button was pressed
+		int i = 1;
+		if(buttonPressed.getSource() == btnSubmit){
+			System.out.println("submit button Button Pressed");
+		
+		}		
+	}
+}
+

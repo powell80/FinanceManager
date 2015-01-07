@@ -1,19 +1,15 @@
 package database;
 
 import gui.LoginWindow;
-import gui.NewUserWindow;
-
-
-//STEP 1. Import required packages
 import java.sql.*;
 
 public class DBInterface {
 
-	private static final String DRIVER = "org.h2.Driver";
-	private static final String DBNAME = "FINANCE";
-	private static final String DB_URL = "jdbc:h2:" + DBNAME;
-	private static final String USER = "sa";
-	private static final String ATTRIBUTE = "";
+	public static final String DRIVER = "org.h2.Driver";
+	public static final String DBNAME = "FINANCE";
+	public static final String DB_URL = "jdbc:h2:" + DBNAME;
+	public static final String USER = "sa";
+	public static final String ATTRIBUTE = "";
 	Connection conn = null;
 	public Statement stmt = null;
 	
@@ -22,7 +18,6 @@ public class DBInterface {
 		//Connection conn = null;
 		//Statement stmt = null;
 		LoginWindow login = new LoginWindow();
-		NewUserWindow nUser = new NewUserWindow();
 
 		
 		//sql statements to create database
@@ -58,7 +53,6 @@ public class DBInterface {
 	
 			stmt.executeUpdate(sqlTableUSER);
 			System.out.println("Created table in Database " + DBNAME);
-			nUser.initialize();
 
 		}catch (SQLException se) {
 			if (se.getErrorCode() == 42101){

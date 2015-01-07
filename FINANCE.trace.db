@@ -1,0 +1,12 @@
+01-06 22:09:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userNo int NOT NULL AUTO_INCREMENT,userFirstName VARCHAR(100) not NULL,userLastName VARCHAR(100) not NULL,CONSTRAINT PKUSER PRIMARY KEY (userNo)) [42101-176]
+01-06 22:09:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userNo int NOT NULL AUTO_INCREMENT,userFirstName VARCHAR(100) not NULL,userLastName VARCHAR(100) not NULL,CONSTRAINT PKUSER PRIMARY KEY (userNo)) [42101-176]
+01-06 22:10:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userNo int NOT NULL AUTO_INCREMENT,userFirstName VARCHAR(100) not NULL,userLastName VARCHAR(100) not NULL,CONSTRAINT PKUSER PRIMARY KEY (userNo)) [42101-176]
+01-06 22:11:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USER" already exists; SQL statement:
+CREATE TABLE USER(userNo int NOT NULL AUTO_INCREMENT,userFirstName VARCHAR(100) not NULL,userLastName VARCHAR(100) not NULL,CONSTRAINT PKUSER PRIMARY KEY (userNo)) [42101-176]
