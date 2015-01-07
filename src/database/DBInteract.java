@@ -20,7 +20,7 @@ public class DBInteract {
 			
 		}
 	
-		public Statement dbConnect(){
+		public Statement dbStmt(){
 			
 			try {
 				conn = DriverManager.getConnection(DB_URL, USER, ATTRIBUTE);

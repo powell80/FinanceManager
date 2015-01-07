@@ -21,16 +21,19 @@ public class DBInterface {
 
 		
 		//sql statements to create database
-		String sqlTableUSER = 
-				"CREATE TABLE USER" + 
-				"(userNo int NOT NULL AUTO_INCREMENT," +
-				"userFirstName VARCHAR(100) not NULL," +
-				"userLastName VARCHAR(100) not NULL," +
-				"CONSTRAINT PKUSER PRIMARY KEY (userNo))";
+		String sqlTableEXPENSES = 
+				"CREATE TABLE EXPENSES" + 
+				"(ExpenseId int NOT NULL AUTO_INCREMENT," +
+				"ExpenseName VARCHAR(100) not NULL," +
+				"ExpenseAmount DECIMAL(6,2) not NULL," + 
+				"ExpenseCat VARCHAR(50) not NULL," + 
+				"ExpenseType VARCHAR(50) not NULL," + 
+				"ExpenseComm VARCHAR(250) not NULL," +
+				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
 		String sqlTableEXPENDETURES = 
-				"CREATE TABLE EXPENDETURES" +
-				"(ExpID "
+				"CREATE TABLE DAILYEXPENSES" +
+				"( "
 				+ "";
 		
 		
@@ -51,7 +54,7 @@ public class DBInterface {
 			//create database and connect
 			System.out.println("Database " + DBNAME + " Created Successfully");
 	
-			stmt.executeUpdate(sqlTableUSER);
+			stmt.executeUpdate(sqlTableEXPENSES);
 			System.out.println("Created table in Database " + DBNAME);
 
 		}catch (SQLException se) {

@@ -26,19 +26,26 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import main.Listener;
+import main.NewExpense;
 import database.DBInterface;
 
 import java.awt.Panel;
 import java.sql.SQLException;
 
+import javax.swing.DefaultComboBoxModel;
+
 
 public class MainWindow implements ActionListener{
 
 	public JFrame frmFinanceManager;
-	private JTextField textField;
+	private JTextField txteAmount;
 	private Rectangle rect;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField txteName;
+	private JTextField txteComm;
+	private JComboBox cbeType;
+	private JComboBox cbeCat;
+	private NewExpense nExp;
+	
 	//public ActionListener buttonPressed;
 	
 	//button declarations 
@@ -49,16 +56,20 @@ public class MainWindow implements ActionListener{
 	 */
 	public MainWindow() {
 		//initialize();
+		this.nExp = new NewExpense();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() {
 		Calender cal = new Calender();
 		ButtonGroup radioGroup = new ButtonGroup();
 		DBInterface DBinter = new DBInterface();
-		Listener lis = new Listener();
+		
+
+		
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 1280, 800);
@@ -74,56 +85,68 @@ public class MainWindow implements ActionListener{
 		tabbedPane.addTab("Main", null, panel_2, null);
 		panel_2.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 176, 293, 221);
-		panel.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Add Expense", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_2.add(panel);
-		panel.setLayout(null);
+		JPanel addExpPanel = new JPanel();
+		addExpPanel.setBounds(12, 176, 293, 255);
+		addExpPanel.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Add Expense", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_2.add(addExpPanel);
+		addExpPanel.setLayout(null);
 		
 		JLabel lblAmount = new JLabel("Amount");
 		lblAmount.setBounds(12, 73, 62, 15);
-		panel.add(lblAmount);
+		addExpPanel.add(lblAmount);
 		
 		btnSubmit  = new JButton("Submit");
 		btnSubmit.addActionListener(this);
-		btnSubmit.setBounds(164, 177, 117, 25);
-		panel.add(btnSubmit);
-		
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setToolTipText("Select from a list of categories for each expense you make");
-		//comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
-		comboBox.setBounds(90, 105, 191, 25);
-		panel.add(comboBox);
+		btnSubmit.setBounds(164, 216, 117, 25);
+		addExpPanel.add(btnSubmit);
 		
 		JLabel lblCatagory = new JLabel("Catagory");
 		lblCatagory.setBounds(12, 110, 78, 15);
-		panel.add(lblCatagory);
+		addExpPanel.add(lblCatagory);
 		
 		JLabel lblComment = new JLabel("Comment");
-		lblComment.setBounds(12, 142, 78, 15);
-		panel.add(lblComment);
+		lblComment.setBounds(12, 184, 78, 15);
+		addExpPanel.add(lblComment);
 		
-		textField = new JTextField();
-		textField.setToolTipText("Amount of expense");
-		textField.setBounds(90, 68, 191, 25);
-		panel.add(textField);
-		textField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setToolTipText("Amount of expense");
-		textField_1.setColumns(10);
-		textField_1.setBounds(90, 31, 191, 25);
-		panel.add(textField_1);
+		cbeCat = new JComboBox();
+		cbeCat.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Alcohol", "Coffee", "Groceries", "Gym", "Books", "Haircut", "Fuel", "Tips", "Rent", "Snacks", "Eating Out", "Bills", "Strip Clubs"}));
+		cbeCat.setMaximumRowCount(15);
+		cbeCat.setToolTipText("Select from a list of categories for each expense you make");
+		//comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
+		cbeCat.setBounds(90, 105, 191, 25);
+		addExpPanel.add(cbeCat);
+		
+		txteAmount = new JTextField();
+		txteAmount.setToolTipText("Amount of expense");
+		txteAmount.setBounds(90, 68, 191, 25);
+		addExpPanel.add(txteAmount);
+		txteAmount.setColumns(10);
+		
+		txteName = new JTextField();
+		txteName.setToolTipText("Amount of expense");
+		txteName.setColumns(10);
+		txteName.setBounds(90, 31, 191, 25);
+		addExpPanel.add(txteName);
 		
 		JLabel lblName = new JLabel("Name");
 		lblName.setBounds(12, 36, 70, 15);
-		panel.add(lblName);
+		addExpPanel.add(lblName);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(90, 140, 191, 25);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		txteComm = new JTextField();
+		txteComm.setBounds(90, 179, 191, 25);
+		addExpPanel.add(txteComm);
+		txteComm.setColumns(10);
+		
+		cbeType = new JComboBox();
+		cbeType.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Daily", "Monthly", "Annual"}));
+		cbeType.setToolTipText("Select from a list of categories for each expense you make");
+		cbeType.setBounds(90, 142, 191, 25);
+		addExpPanel.add(cbeType);
+		
+		JLabel lblType = new JLabel("Type");
+		lblType.setBounds(12, 147, 78, 15);
+		addExpPanel.add(lblType);
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_1.setBounds(317, 8, 328, 152);
@@ -267,11 +290,30 @@ public class MainWindow implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
-		// TODO Auto-generated method stub
+		
 		//test if create user button was pressed
 		int i = 1;
+		double exp;
 		if(buttonPressed.getSource() == btnSubmit){
 			System.out.println("submit button Button Pressed");
+			exp = Double.parseDouble(txteAmount.getText());
+			System.out.println(txteName.getText() +"\n"+ 
+			txteAmount.getText() +"\n"+
+			cbeCat.getSelectedItem().toString() +"\n"+
+			cbeType.getSelectedItem().toString()+"\n"+
+			txteComm.getText());
+			
+			nExp.createExpense(txteName.getText(), exp, cbeCat.getSelectedItem().toString(), cbeType.getSelectedItem().toString(), txteComm.getText());
+			
+			txteName.setText(null);
+			txteAmount.setText(null);
+			cbeCat.setSelectedIndex(0);
+			cbeType.setSelectedIndex(0);
+			txteComm.setText(null);
+			
+			
+			
+			
 		
 		}		
 	}

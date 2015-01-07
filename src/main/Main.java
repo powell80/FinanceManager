@@ -10,15 +10,15 @@ import javax.swing.UnsupportedLookAndFeelException;
 import database.DBInterface;
 
 public class Main {
-	static MainWindow mainWin = new MainWindow();
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		final MainWindow mainWin = new MainWindow();
+		final DBInterface db = new DBInterface();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
 				try {
-					DBInterface db = new DBInterface();
 					db.WriteDB();
 					mainWin.initialize();
 				} catch (Exception e) {
