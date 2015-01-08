@@ -14,12 +14,8 @@ public class DBInterface {
 	public Statement stmt = null;
 	
 	public void WriteDB() throws SQLException{
-		//database name and connection
-		//Connection conn = null;
-		//Statement stmt = null;
-		LoginWindow login = new LoginWindow();
-
 		
+
 		//sql statements to create database
 		String sqlTableEXPENSES = 
 				"CREATE TABLE EXPENSES" + 
@@ -29,9 +25,10 @@ public class DBInterface {
 				"ExpenseCat VARCHAR(50) not NULL," + 
 				"ExpenseType VARCHAR(50) not NULL," + 
 				"ExpenseComm VARCHAR(250) not NULL," +
+				"ExpenseDate DATE," +
 				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
-		String sqlTableEXPENDETURES = 
+		String sqlTabledEXPENDETURES = 
 				"CREATE TABLE DAILYEXPENSES" +
 				"( "
 				+ "";

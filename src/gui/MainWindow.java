@@ -27,6 +27,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import main.Listener;
 import main.NewExpense;
+import database.DBInteract;
 import database.DBInterface;
 
 import java.awt.Panel;
@@ -45,6 +46,8 @@ public class MainWindow implements ActionListener{
 	private JComboBox cbeType;
 	private JComboBox cbeCat;
 	private NewExpense nExp;
+	private DBInteract DBint;
+	private ButtonGroup radGroup;
 	
 	//public ActionListener buttonPressed;
 	
@@ -57,6 +60,8 @@ public class MainWindow implements ActionListener{
 	public MainWindow() {
 		//initialize();
 		this.nExp = new NewExpense();
+		this.radGroup = new ButtonGroup();
+		this.DBint = new DBInteract();
 	}
 
 	/**
@@ -64,15 +69,13 @@ public class MainWindow implements ActionListener{
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() {
-		Calender cal = new Calender();
-		ButtonGroup radioGroup = new ButtonGroup();
 		DBInterface DBinter = new DBInterface();
 		
 
 		
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
-		frmFinanceManager.setBounds(100, 100, 1280, 800);
+		frmFinanceManager.setBounds(100, 100, 685, 633);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
 		
@@ -162,9 +165,9 @@ public class MainWindow implements ActionListener{
 		JRadioButton rdbtnMonth = new JRadioButton("Month");
 		
 		//add day, week, and month radio buttons to radioGroup
-		radioGroup.add(rdbtnDay);
-		radioGroup.add(rdbtnWeek);
-		radioGroup.add(rdbtnMonth);
+		radGroup.add(rdbtnDay);
+		radGroup.add(rdbtnWeek);
+		radGroup.add(rdbtnMonth);
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setBorder(new TitledBorder(null, "Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -207,46 +210,45 @@ public class MainWindow implements ActionListener{
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Recent Expenses", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
-		panel_6.setBounds(12, 12, 293, 152);
+		panel_6.setBounds(12, 8, 293, 156);
 		panel_2.add(panel_6);
 		
 		JLabel label = new JLabel("1. ");
+		label.setBounds(17, 17, 17, 15);
 		
 		JLabel label_1 = new JLabel("2. ");
+		label_1.setBounds(17, 44, 17, 15);
 		
 		JLabel label_2 = new JLabel("3. ");
+		label_2.setBounds(17, 71, 17, 15);
 		
 		JLabel label_3 = new JLabel("4. ");
+		label_3.setBounds(17, 98, 17, 15);
 		
 		JLabel label_4 = new JLabel("5. ");
-		GroupLayout gl_panel_6 = new GroupLayout(panel_6);
-		gl_panel_6.setHorizontalGroup(
-			gl_panel_6.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_6.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_6.createParallelGroup(Alignment.LEADING)
-						.addComponent(label)
-						.addComponent(label_1, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_2, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_3, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)
-						.addComponent(label_4, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(254, Short.MAX_VALUE))
-		);
-		gl_panel_6.setVerticalGroup(
-			gl_panel_6.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_6.createSequentialGroup()
-					.addComponent(label)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(label_1)
-					.addGap(9)
-					.addComponent(label_2)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(label_3)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(label_4)
-					.addContainerGap(28, Short.MAX_VALUE))
-		);
-		panel_6.setLayout(gl_panel_6);
+		label_4.setBounds(17, 125, 17, 15);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(40, 17, 236, 0);
+		JLabel label_5 = new JLabel("");
+		label_5.setBounds(40, 38, 236, 0);
+		JLabel label_6 = new JLabel("");
+		label_6.setBounds(40, 62, 236, 0);
+		JLabel label_7 = new JLabel("");
+		label_7.setBounds(40, 83, 236, 0);
+		JLabel label_8 = new JLabel("");
+		label_8.setBounds(40, 104, 236, 0);
+		panel_6.setLayout(null);
+		panel_6.add(label);
+		panel_6.add(lblNewLabel);
+		panel_6.add(label_1);
+		panel_6.add(label_5);
+		panel_6.add(label_2);
+		panel_6.add(label_6);
+		panel_6.add(label_3);
+		panel_6.add(label_7);
+		panel_6.add(label_4);
+		panel_6.add(label_8);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
@@ -297,19 +299,17 @@ public class MainWindow implements ActionListener{
 		if(buttonPressed.getSource() == btnSubmit){
 			System.out.println("submit button Button Pressed");
 			exp = Double.parseDouble(txteAmount.getText());
-			System.out.println(txteName.getText() +"\n"+ 
-			txteAmount.getText() +"\n"+
-			cbeCat.getSelectedItem().toString() +"\n"+
-			cbeType.getSelectedItem().toString()+"\n"+
-			txteComm.getText());
 			
 			nExp.createExpense(txteName.getText(), exp, cbeCat.getSelectedItem().toString(), cbeType.getSelectedItem().toString(), txteComm.getText());
+			
 			
 			txteName.setText(null);
 			txteAmount.setText(null);
 			cbeCat.setSelectedIndex(0);
 			cbeType.setSelectedIndex(0);
 			txteComm.setText(null);
+			
+			
 			
 			
 			

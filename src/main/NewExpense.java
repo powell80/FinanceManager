@@ -1,18 +1,21 @@
 package main;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import database.DBInteract;
-import database.DBInterface;
 
 public class NewExpense {
 	
-	private DBInterface DBinter;
 	private DBInteract DBint;
+	private Date date;
+	private SimpleDateFormat df;
 	
 	public NewExpense(){
-		this.DBinter = new DBInterface();
 		this.DBint = new DBInteract();
+		this.date = new Date();
+		this.df = new SimpleDateFormat();
 	}
 		
 	public void createExpense(String eName, double eAmount, String eCat, String eType, String eComment){
@@ -22,11 +25,15 @@ public class NewExpense {
 		String category = eCat;
 		String type = eType;
 		String comment = eComment;
+		df = new SimpleDateFormat("yyyy-MM-dd");
 		
+		//format date and time
+		//df.format(date);
+		//tf.format(time);
 		
 		sqlNewExpense = "INSERT INTO EXPENSES"
-				+ "(ExpenseName, ExpenseAmount, ExpenseCat, ExpenseType, ExpenseComm)"
-				+ "VALUES (" + "'" + name + "'," + "'" + amount + "'," + "'" + category + "'," + "'" + type + "'," + "'" + comment + "'" + ")"; 
+				+ "(ExpenseName, ExpenseAmount, ExpenseCat, ExpenseType, ExpenseComm, ExpenseDate)"
+				+ "VALUES (" + "'" + name + "'," + "'" + amount + "'," + "'" + category + "'," + "'" + type + "'," + "'" + comment + "'," + "'" + df.format(date) + "'" + ")"; 
 		
 		try{
 			DBint.dbStmt().executeUpdate(sqlNewExpense);
