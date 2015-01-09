@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -31,16 +32,18 @@ import database.DBInteract;
 import database.DBInterface;
 
 import java.awt.Panel;
+import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JSplitPane;
 
 
 public class MainWindow implements ActionListener{
 
 	public JFrame frmFinanceManager;
 	private JTextField txteAmount;
-	private Rectangle rect;
 	private JTextField txteName;
 	private JTextField txteComm;
 	private JComboBox cbeType;
@@ -48,11 +51,21 @@ public class MainWindow implements ActionListener{
 	private NewExpense nExp;
 	private DBInteract DBint;
 	private ButtonGroup radGroup;
+	public JLabel firstExp, secondExp, thirdExp, fourthExp, fifthExp;
+	private String expName;
+	private double expAmount;
+	private Date expDate;
+	private DBInterface dbInter;
+	private ResultSet rs;
+	
+	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseDate "
+			+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime DESC";
 	
 	//public ActionListener buttonPressed;
 	
 	//button declarations 
 	private JButton btnSubmit;
+	
 
 	/**
 	 * Create the application.
@@ -62,6 +75,7 @@ public class MainWindow implements ActionListener{
 		this.nExp = new NewExpense();
 		this.radGroup = new ButtonGroup();
 		this.DBint = new DBInteract();
+		this.dbInter = new DBInterface();
 	}
 
 	/**
@@ -69,10 +83,6 @@ public class MainWindow implements ActionListener{
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() {
-		DBInterface DBinter = new DBInterface();
-		
-
-		
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
 		frmFinanceManager.setBounds(100, 100, 685, 633);
@@ -89,7 +99,7 @@ public class MainWindow implements ActionListener{
 		panel_2.setLayout(null);
 		
 		JPanel addExpPanel = new JPanel();
-		addExpPanel.setBounds(12, 176, 293, 255);
+		addExpPanel.setBounds(12, 189, 293, 255);
 		addExpPanel.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Add Expense", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_2.add(addExpPanel);
 		addExpPanel.setLayout(null);
@@ -113,7 +123,7 @@ public class MainWindow implements ActionListener{
 		
 		
 		cbeCat = new JComboBox();
-		cbeCat.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Alcohol", "Coffee", "Groceries", "Gym", "Books", "Haircut", "Fuel", "Tips", "Rent", "Snacks", "Eating Out", "Bills", "Strip Clubs"}));
+		cbeCat.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Alcohol",  "Bills", "Coffee", "Hobbies", "Groceries", "Gym", "Books", "Haircut", "Fuel", "Tips", "Rent", "Snacks", "Eating Out", "Strip Clubs"}));
 		cbeCat.setMaximumRowCount(15);
 		cbeCat.setToolTipText("Select from a list of categories for each expense you make");
 		//comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
@@ -152,7 +162,7 @@ public class MainWindow implements ActionListener{
 		addExpPanel.add(lblType);
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane_1.setBounds(317, 8, 328, 152);
+		tabbedPane_1.setBounds(370, 8, 275, 169);
 		panel_2.add(tabbedPane_1);
 		
 		JPanel panel_1 = new JPanel();
@@ -175,30 +185,28 @@ public class MainWindow implements ActionListener{
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+					.addGap(18)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(39)
 							.addComponent(rdbtnDay)
 							.addGap(18)
 							.addComponent(rdbtnWeek)
 							.addGap(18)
-							.addComponent(rdbtnMonth))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGap(60)
-							.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 218, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(45, Short.MAX_VALUE))
+							.addComponent(rdbtnMonth)))
+					.addContainerGap(13, Short.MAX_VALUE))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-						.addComponent(rdbtnWeek)
 						.addComponent(rdbtnDay)
+						.addComponent(rdbtnWeek)
 						.addComponent(rdbtnMonth))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_7, GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(41, Short.MAX_VALUE))
 		);
 		panel_1.setLayout(gl_panel_1);
 		
@@ -210,45 +218,45 @@ public class MainWindow implements ActionListener{
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Recent Expenses", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
-		panel_6.setBounds(12, 8, 293, 156);
+		panel_6.setBounds(12, 8, 346, 169);
 		panel_2.add(panel_6);
 		
-		JLabel label = new JLabel("1. ");
-		label.setBounds(17, 17, 17, 15);
+		JLabel lab1 = new JLabel("1. ");
+		lab1.setBounds(17, 31, 17, 15);
 		
-		JLabel label_1 = new JLabel("2. ");
-		label_1.setBounds(17, 44, 17, 15);
+		JLabel lab2 = new JLabel("2. ");
+		lab2.setBounds(17, 58, 17, 15);
 		
-		JLabel label_2 = new JLabel("3. ");
-		label_2.setBounds(17, 71, 17, 15);
+		JLabel lab3 = new JLabel("3. ");
+		lab3.setBounds(17, 85, 17, 15);
 		
-		JLabel label_3 = new JLabel("4. ");
-		label_3.setBounds(17, 98, 17, 15);
+		JLabel lab4 = new JLabel("4. ");
+		lab4.setBounds(17, 112, 17, 15);
 		
-		JLabel label_4 = new JLabel("5. ");
-		label_4.setBounds(17, 125, 17, 15);
+		JLabel lab5 = new JLabel("5. ");
+		lab5.setBounds(17, 139, 17, 15);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(40, 17, 236, 0);
-		JLabel label_5 = new JLabel("");
-		label_5.setBounds(40, 38, 236, 0);
-		JLabel label_6 = new JLabel("");
-		label_6.setBounds(40, 62, 236, 0);
-		JLabel label_7 = new JLabel("");
-		label_7.setBounds(40, 83, 236, 0);
-		JLabel label_8 = new JLabel("");
-		label_8.setBounds(40, 104, 236, 0);
+		firstExp= new JLabel("");
+		firstExp.setBounds(50, 28, 284, 20);
+		secondExp = new JLabel("");
+		secondExp.setBounds(50, 55, 284, 20);
+		thirdExp = new JLabel("");
+		thirdExp.setBounds(50, 82, 284, 20);
+		fourthExp = new JLabel("");
+		fourthExp.setBounds(50, 109, 284, 20);
+		fifthExp = new JLabel("");
+		fifthExp.setBounds(50, 136, 284, 20);
 		panel_6.setLayout(null);
-		panel_6.add(label);
-		panel_6.add(lblNewLabel);
-		panel_6.add(label_1);
-		panel_6.add(label_5);
-		panel_6.add(label_2);
-		panel_6.add(label_6);
-		panel_6.add(label_3);
-		panel_6.add(label_7);
-		panel_6.add(label_4);
-		panel_6.add(label_8);
+		panel_6.add(firstExp);
+		panel_6.add(lab1);
+		panel_6.add(secondExp);
+		panel_6.add(lab2);
+		panel_6.add(thirdExp);
+		panel_6.add(lab3);
+		panel_6.add(fourthExp);
+		panel_6.add(lab4);
+		panel_6.add(fifthExp);
+		panel_6.add(lab5);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
@@ -287,20 +295,117 @@ public class MainWindow implements ActionListener{
 		
 		frmFinanceManager.setVisible(true);
 		
+		try {
+			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
+			int i = 1;
+			
+			while(rs.next()){
+				
+				if(i == 1){
+					expName = rs.getString("ExpenseName");
+					expAmount = rs.getDouble("ExpenseAmount");
+					expDate = rs.getDate("ExpenseDate");
+					firstExp.setText(expName + "--" + expAmount + "--" + expDate);
+				}
+				if(i ==2){
+					expName = rs.getString("ExpenseName");
+					expAmount = rs.getDouble("ExpenseAmount");
+					expDate = rs.getDate("ExpenseDate");
+					secondExp.setText(expName + "--" + expAmount + "--" + expDate);
+				}
+				if(i == 3){
+					expName = rs.getString("ExpenseName");
+					expAmount = rs.getDouble("ExpenseAmount");
+					expDate = rs.getDate("ExpenseDate");
+					thirdExp.setText(expName + "--" + expAmount + "--" + expDate);
+				}
+				if(i == 4){
+					expName = rs.getString("ExpenseName");
+					expAmount = rs.getDouble("ExpenseAmount");
+					expDate = rs.getDate("ExpenseDate");
+					fourthExp.setText(expName + "--" + expAmount + "--" + expDate);
+				}
+				if(i ==5){
+					expName = rs.getString("ExpenseName");
+					expAmount = rs.getDouble("ExpenseAmount");
+					expDate = rs.getDate("ExpenseDate");
+					fifthExp.setText(expName + "--" + expAmount + "--" + expDate);
+				}
+				else{
+					//break;
+				}
+				i++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent buttonPressed) {
-		
+		int count = 0;
 		//test if create user button was pressed
-		int i = 1;
 		double exp;
+		
 		if(buttonPressed.getSource() == btnSubmit){
+			int i = 1;
+			
 			System.out.println("submit button Button Pressed");
 			exp = Double.parseDouble(txteAmount.getText());
 			
-			nExp.createExpense(txteName.getText(), exp, cbeCat.getSelectedItem().toString(), cbeType.getSelectedItem().toString(), txteComm.getText());
+			nExp.createExpense(txteName.getText(), exp, cbeCat.getSelectedItem().toString(), 
+								cbeType.getSelectedItem().toString(), txteComm.getText());
+			
+			
+			try {
+				rs = dbInter.dbConnect().executeQuery(selectRecentExp);
+				
+				while(rs.next()){
+					
+					
+					if(i == 1){
+						expName = rs.getString("ExpenseName");
+						expAmount = rs.getDouble("ExpenseAmount");
+						expDate = rs.getDate("ExpenseDate");
+						firstExp.setText(expName + "--" + expAmount + "--" + expDate);
+					}
+					if(i ==2){
+						expName = rs.getString("ExpenseName");
+						expAmount = rs.getDouble("ExpenseAmount");
+						expDate = rs.getDate("ExpenseDate");
+						secondExp.setText(expName + "--" + expAmount + "--" + expDate);
+					}
+					if(i == 3){
+						expName = rs.getString("ExpenseName");
+						expAmount = rs.getDouble("ExpenseAmount");
+						expDate = rs.getDate("ExpenseDate");
+						thirdExp.setText(expName + "--" + expAmount + "--" + expDate);
+					}
+					if(i == 4){
+						expName = rs.getString("ExpenseName");
+						expAmount = rs.getDouble("ExpenseAmount");
+						expDate = rs.getDate("ExpenseDate");
+						fourthExp.setText(expName + "--" + expAmount + "--" + expDate);
+					}
+					if(i ==5){
+						expName = rs.getString("ExpenseName");
+						expAmount = rs.getDouble("ExpenseAmount");
+						expDate = rs.getDate("ExpenseDate");
+						fifthExp.setText(expName + "--" + expAmount + "--" + expDate);
+					}
+					else{
+						//break;
+					}
+					i++;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
 			txteName.setText(null);

@@ -1,6 +1,5 @@
 package database;
 
-import gui.LoginWindow;
 import java.sql.*;
 
 public class DBInterface {
@@ -10,8 +9,9 @@ public class DBInterface {
 	public static final String DB_URL = "jdbc:h2:" + DBNAME;
 	public static final String USER = "sa";
 	public static final String ATTRIBUTE = "";
-	Connection conn = null;
-	public Statement stmt = null;
+	private Connection conn = null;
+	private Statement stmt = null;
+	
 	
 	public void WriteDB() throws SQLException{
 		
@@ -25,7 +25,8 @@ public class DBInterface {
 				"ExpenseCat VARCHAR(50) not NULL," + 
 				"ExpenseType VARCHAR(50) not NULL," + 
 				"ExpenseComm VARCHAR(250) not NULL," +
-				"ExpenseDate DATE," +
+				"ExpenseDate DATE," + 
+				"ExpenseTime TIME," +
 				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
 		String sqlTabledEXPENDETURES = 
