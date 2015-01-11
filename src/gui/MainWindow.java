@@ -28,6 +28,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import main.Listener;
 import main.NewExpense;
+import main.CalInfo;
 import database.DBInteract;
 import database.DBInterface;
 
@@ -35,9 +36,12 @@ import java.awt.Panel;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSplitPane;
+
+import java.awt.Font;
 
 
 public class MainWindow implements ActionListener{
@@ -49,14 +53,17 @@ public class MainWindow implements ActionListener{
 	private JComboBox cbeType;
 	private JComboBox cbeCat;
 	private NewExpense nExp;
+	private CalInfo cInfo;
 	private DBInteract DBint;
 	private ButtonGroup radGroup;
-	public JLabel firstExp, secondExp, thirdExp, fourthExp, fifthExp;
+	public JLabel firstExp, secondExp, thirdExp, fourthExp, fifthExp, lblAvgAmount;
+	private JRadioButton rdbtnDay, rdbtnWeek, rdbtnMonth;
 	private String expName;
-	private double expAmount;
+	private double expAmount, dailyAvg, WeeklyAvg, MonthlyAvg;
 	private Date expDate;
 	private DBInterface dbInter;
 	private ResultSet rs;
+	private int month, week, day;
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseDate "
 			+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime DESC";
@@ -88,7 +95,7 @@ public class MainWindow implements ActionListener{
 		frmFinanceManager.setBounds(100, 100, 685, 633);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
-		
+		Calendar.getInstance();
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 662, 560);
@@ -123,7 +130,7 @@ public class MainWindow implements ActionListener{
 		
 		
 		cbeCat = new JComboBox();
-		cbeCat.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Alcohol",  "Bills", "Coffee", "Hobbies", "Groceries", "Gym", "Books", "Haircut", "Fuel", "Tips", "Rent", "Snacks", "Eating Out", "Strip Clubs"}));
+		cbeCat.setModel(new DefaultComboBoxModel(new String[] {"--Select One--", "Alcohol",  "Bills", "Coffee", "Hobbies", "Groceries", "Gym", "Books", "Movies", "Haircut", "Fuel", "Tips", "Rent", "Snacks", "Eating Out", "Strip Clubs", "Misc."}));
 		cbeCat.setMaximumRowCount(15);
 		cbeCat.setToolTipText("Select from a list of categories for each expense you make");
 		//comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seclect One"}));
@@ -168,16 +175,20 @@ public class MainWindow implements ActionListener{
 		JPanel panel_1 = new JPanel();
 		tabbedPane_1.addTab("Total", null, panel_1, null);
 		
-		JRadioButton rdbtnDay = new JRadioButton("Day");
+		rdbtnDay = new JRadioButton("Day");
+		rdbtnDay.setSelected(true);
 		
-		JRadioButton rdbtnWeek = new JRadioButton("Week");
+		rdbtnWeek = new JRadioButton("Week");
 		
-		JRadioButton rdbtnMonth = new JRadioButton("Month");
+		rdbtnMonth = new JRadioButton("Month");
 		
 		//add day, week, and month radio buttons to radioGroup
 		radGroup.add(rdbtnDay);
 		radGroup.add(rdbtnWeek);
 		radGroup.add(rdbtnMonth);
+		rdbtnDay.addActionListener(this);
+		rdbtnWeek.addActionListener(this);
+		rdbtnMonth.addActionListener(this);
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setBorder(new TitledBorder(null, "Amount", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -194,7 +205,7 @@ public class MainWindow implements ActionListener{
 							.addComponent(rdbtnWeek)
 							.addGap(18)
 							.addComponent(rdbtnMonth)))
-					.addContainerGap(13, Short.MAX_VALUE))
+					.addContainerGap(29, Short.MAX_VALUE))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
@@ -204,10 +215,14 @@ public class MainWindow implements ActionListener{
 						.addComponent(rdbtnDay)
 						.addComponent(rdbtnWeek)
 						.addComponent(rdbtnMonth))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(41, Short.MAX_VALUE))
+					.addGap(18)
+					.addComponent(panel_7, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(27, Short.MAX_VALUE))
 		);
+		
+		lblAvgAmount = new JLabel("Daily Average");
+		lblAvgAmount.setFont(new Font("Dialog", Font.BOLD, 20));
+		panel_7.add(lblAvgAmount);
 		panel_1.setLayout(gl_panel_1);
 		
 		JPanel panel_4 = new JPanel();
@@ -237,15 +252,15 @@ public class MainWindow implements ActionListener{
 		lab5.setBounds(17, 139, 17, 15);
 		
 		firstExp= new JLabel("");
-		firstExp.setBounds(50, 28, 284, 20);
+		firstExp.setBounds(46, 28, 288, 20);
 		secondExp = new JLabel("");
-		secondExp.setBounds(50, 55, 284, 20);
+		secondExp.setBounds(45, 55, 289, 20);
 		thirdExp = new JLabel("");
-		thirdExp.setBounds(50, 82, 284, 20);
+		thirdExp.setBounds(45, 82, 289, 20);
 		fourthExp = new JLabel("");
-		fourthExp.setBounds(50, 109, 284, 20);
+		fourthExp.setBounds(45, 109, 289, 20);
 		fifthExp = new JLabel("");
-		fifthExp.setBounds(50, 136, 284, 20);
+		fifthExp.setBounds(45, 136, 289, 20);
 		panel_6.setLayout(null);
 		panel_6.add(firstExp);
 		panel_6.add(lab1);
@@ -264,7 +279,6 @@ public class MainWindow implements ActionListener{
 		calender.setBounds(12, 59, 630, 450);
 		panel_3.add(calender);
 		tabbedPane.addTab("Monthly Calender", null, panel_3, null);
-		
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmFinanceManager.setJMenuBar(menuBar);
@@ -294,6 +308,9 @@ public class MainWindow implements ActionListener{
 		menuBar.add(mnHelp);
 		
 		frmFinanceManager.setVisible(true);
+		rdbtnDay.setSelected(true);
+		//cInfo.getDaysInMonth();
+		
 		
 		try {
 			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
@@ -346,12 +363,13 @@ public class MainWindow implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent buttonPressed) {
-		int count = 0;
+	public void actionPerformed(ActionEvent event) {
+		
 		//test if create user button was pressed
 		double exp;
 		
-		if(buttonPressed.getSource() == btnSubmit){
+		
+		if(event.getSource() == btnSubmit){
 			int i = 1;
 			
 			System.out.println("submit button Button Pressed");
@@ -365,6 +383,7 @@ public class MainWindow implements ActionListener{
 				rs = dbInter.dbConnect().executeQuery(selectRecentExp);
 				
 				while(rs.next()){
+					
 					
 					
 					if(i == 1){
@@ -414,13 +433,18 @@ public class MainWindow implements ActionListener{
 			cbeType.setSelectedIndex(0);
 			txteComm.setText(null);
 			
-			
-			
-			
-			
-			
+		}
 		
-		}		
+		if(rdbtnDay.isSelected()){
+			
+			lblAvgAmount.setText("Daily Average");
+		}
+		if(rdbtnWeek.isSelected()){
+			lblAvgAmount.setText("Weekly Average");
+		}
+		if(rdbtnMonth.isSelected()){
+			lblAvgAmount.setText("Monthly Average");
+		}
 	}
 }
 

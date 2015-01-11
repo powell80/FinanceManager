@@ -21,7 +21,7 @@ public class DBInterface {
 				"CREATE TABLE EXPENSES" + 
 				"(ExpenseId int NOT NULL AUTO_INCREMENT," +
 				"ExpenseName VARCHAR(100) not NULL," +
-				"ExpenseAmount DECIMAL(6,2) not NULL," + 
+				"ExpenseAmount DECIMAL(10,2) not NULL," + 
 				"ExpenseCat VARCHAR(50) not NULL," + 
 				"ExpenseType VARCHAR(50) not NULL," + 
 				"ExpenseComm VARCHAR(250) not NULL," +
@@ -29,8 +29,18 @@ public class DBInterface {
 				"ExpenseTime TIME," +
 				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
-		String sqlTabledEXPENDETURES = 
+		String sqlTableDAILYEXPENSES = 
 				"CREATE TABLE DAILYEXPENSES" +
+				"( "
+				+ "";
+		
+		String sqlTableWEEKLYEXPENSES = 
+				"CREATE TABLE WEEKLYEXPENSES" +
+				"( "
+				+ "";
+		
+		String sqlTableMONTHLYEXPENSES= 
+				"CREATE TABLE MONTHLYEXPENSES" +
 				"( "
 				+ "";
 		
