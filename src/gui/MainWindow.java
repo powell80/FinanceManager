@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -16,22 +15,18 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
 import main.Listener;
 import main.NewExpense;
 import main.CalInfo;
 import database.DBInteract;
 import database.DBInterface;
-
 import java.awt.Panel;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -40,6 +35,8 @@ import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSplitPane;
+
+import org.joda.time.DateTime;
 
 import java.awt.Font;
 
@@ -60,10 +57,11 @@ public class MainWindow implements ActionListener{
 	private JRadioButton rdbtnDay, rdbtnWeek, rdbtnMonth;
 	private String expName;
 	private double expAmount, dailyAvg, WeeklyAvg, MonthlyAvg;
-	private Date expDate;
 	private DBInterface dbInter;
 	private ResultSet rs;
-	private int month, week, day;
+	private int month, week, day, numDays;
+	private Date expDate, juDate;
+	private DateTime dt; 
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseDate "
 			+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime DESC";
@@ -72,17 +70,19 @@ public class MainWindow implements ActionListener{
 	
 	//button declarations 
 	private JButton btnSubmit;
-	
 
 	/**
 	 * Create the application.
 	 */
 	public MainWindow() {
 		//initialize();
+		
+		dt = new DateTime(juDate);
 		this.nExp = new NewExpense();
 		this.radGroup = new ButtonGroup();
 		this.DBint = new DBInteract();
 		this.dbInter = new DBInterface();
+		this.cInfo = new CalInfo();
 	}
 
 	/**
@@ -309,9 +309,10 @@ public class MainWindow implements ActionListener{
 		
 		frmFinanceManager.setVisible(true);
 		rdbtnDay.setSelected(true);
-		//cInfo.getDaysInMonth();
-		
-		
+		//month =cInfo.getMonth(); 
+		//numDays = cInfo.getDaysInMonth();
+		dailyAvg = DBint.dailyAvg();
+		lblAvgAmount.setText(Double.toString(dailyAvg));
 		try {
 			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
 			int i = 1;
@@ -437,7 +438,8 @@ public class MainWindow implements ActionListener{
 		
 		if(rdbtnDay.isSelected()){
 			
-			lblAvgAmount.setText("Daily Average");
+			dailyAvg = DBint.dailyAvg();
+			lblAvgAmount.setText(Double.toString(dailyAvg));
 		}
 		if(rdbtnWeek.isSelected()){
 			lblAvgAmount.setText("Weekly Average");

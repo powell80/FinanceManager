@@ -1,32 +1,22 @@
 package main;
 
-import java.util.Calendar;
 import java.util.Date;
-
 import org.joda.time.DateTime;
 //import java.util.Date;
 
 public class CalInfo {
 
-	private Date date;
-	private int day;
-	private int week;
-	private int month, year;
-	public int days_in_month;
-	Calendar cal;
+	private int days_in_month, month;
+	private Date juDate;
+	private DateTime dt; 
 	
 	public CalInfo(){
-		java.util.Date juDate = new Date();
-		DateTime DateT = new DateTime(juDate);
+		this.dt = new DateTime(juDate);
 	}
 	
 	public int getDaysInMonth(){
-		DateTime dt = new DateTime();
-		int month = dt.getMonthOfYear();
-		
-		
-		days_in_month = cal.getActualMaximum(month);
-		
+		dt = new DateTime(getYear(), getMonth(), 14,12,0,0,000);
+		days_in_month = dt.dayOfMonth().getMaximumValue();
 		return days_in_month;
 	}
 	
@@ -37,15 +27,14 @@ public class CalInfo {
 	}
 	
 	public int getMonth(){
-		int month;
-		month = cal.get(Calendar.MONTH);
-		
+		month = dt.getMonthOfYear();
 		return month;
 	}
 	
 	public int getYear(){
+		dt = new DateTime();
+		int year = dt.getYear();
 		
-		
-		return 0;
+		return year;
 	}
 }
