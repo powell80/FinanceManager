@@ -1,7 +1,7 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Rectangle;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -9,32 +9,34 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+import javax.swing.text.NumberFormatter;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import main.Listener;
+
 import main.NewExpense;
 import main.CalInfo;
 import database.DBInteract;
 import database.DBInterface;
-import java.awt.Panel;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Calendar;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JSplitPane;
 
 import org.joda.time.DateTime;
 
@@ -95,6 +97,7 @@ public class MainWindow implements ActionListener{
 		frmFinanceManager.setBounds(100, 100, 685, 633);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
+		NumberFormat doubleFormat = new DecimalFormat("#0.00");
 		Calendar.getInstance();
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -312,7 +315,7 @@ public class MainWindow implements ActionListener{
 		//month =cInfo.getMonth(); 
 		//numDays = cInfo.getDaysInMonth();
 		dailyAvg = DBint.dailyAvg();
-		lblAvgAmount.setText(Double.toString(dailyAvg));
+		lblAvgAmount.setText((doubleFormat.format(dailyAvg)));
 		try {
 			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
 			int i = 1;
@@ -365,7 +368,7 @@ public class MainWindow implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		
+		NumberFormat doubleFormat = new DecimalFormat("#0.00");
 		//test if create user button was pressed
 		double exp;
 		
@@ -439,13 +442,15 @@ public class MainWindow implements ActionListener{
 		if(rdbtnDay.isSelected()){
 			
 			dailyAvg = DBint.dailyAvg();
-			lblAvgAmount.setText(Double.toString(dailyAvg));
+			lblAvgAmount.setText(doubleFormat.format(dailyAvg));
 		}
 		if(rdbtnWeek.isSelected()){
-			lblAvgAmount.setText("Weekly Average");
+			WeeklyAvg = DBint.weeklyAvg();
+			lblAvgAmount.setText(doubleFormat.format(WeeklyAvg));
 		}
 		if(rdbtnMonth.isSelected()){
-			lblAvgAmount.setText("Monthly Average");
+			MonthlyAvg = DBint.monthlySpending();
+			lblAvgAmount.setText(doubleFormat.format(MonthlyAvg));
 		}
 	}
 }

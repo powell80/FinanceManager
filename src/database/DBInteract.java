@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,9 +68,80 @@ public class DBInteract {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			avg = cInfo.getDaysInMonth() / monthlyAmount;
+			avg = monthlyAmount / cInfo.getDaysInMonth();
 			System.out.println(avg);
+			return avg;
+		}
+		
+		public double weeklyAvg(){
+			Calendar cal = Calendar.getInstance();
+			Calendar sqlCal = Calendar.getInstance();
+			ResultSet rs = null;
+			dt = new DateTime(juDate);
+			int year = dt.getYear();
+			int month = dt.getMonthOfYear();
+			double monthlyAmount = 0;
+			double avg = 0.0;
 			
+			String sqlCompDate = "SELECT ExpenseName, ExpenseAmount, ExpenseDate "
+					+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime DESC";
+			
+			try {
+				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
+				dt.getMonthOfYear();
+				while(rs.next()){
+					sqlDt = rs.getDate("ExpenseDate");
+					cal.setTime(sqlDt);
+					if((cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
+						
+					}
+						monthlyAmount += rs.getDouble("ExpenseAmount");
+					}
+					
+					System.out.println(monthlyAmount);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			avg = monthlyAmount / 4;
+			System.out.println(avg);
+			return avg;
+		}
+		
+		public double monthlySpending(){
+			Calendar cal = Calendar.getInstance();
+			Calendar sqlCal = Calendar.getInstance();
+			ResultSet rs = null;
+			dt = new DateTime(juDate);
+			int year = dt.getYear();
+			int month = dt.getMonthOfYear();
+			double monthlyAmount = 0;
+			double avg = 0.0;
+			
+			String sqlCompDate = "SELECT ExpenseName, ExpenseAmount, ExpenseDate "
+					+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime ASC";
+			
+			try {
+				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
+				dt.getMonthOfYear();
+				while(rs.next()){
+					sqlDt = rs.getDate("ExpenseDate");
+					cal.setTime(sqlDt);
+					if((Calendar.MONTH == month) && (cal.get(Calendar.YEAR) == year)){
+						
+					}
+						monthlyAmount += rs.getDouble("ExpenseAmount");
+					}
+					
+					System.out.println(monthlyAmount);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			avg = monthlyAmount;
+			System.out.println(avg);
 			return avg;
 		}
 		
