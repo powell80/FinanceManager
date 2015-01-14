@@ -55,7 +55,8 @@ public class DBInteract {
 				dt.getMonthOfYear();
 				while(rs.next()){
 					sqlDt = rs.getDate("ExpenseDate");
-					cal.setTime(sqlDt);
+					sqlCal.setTime(sqlDt);
+					System.out.println(sqlCal.getTime());
 					if((cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
 						
 					}
