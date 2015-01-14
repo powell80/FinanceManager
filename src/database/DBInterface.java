@@ -25,8 +25,7 @@ public class DBInterface {
 				"ExpenseCat VARCHAR(50) not NULL," + 
 				"ExpenseType VARCHAR(50) not NULL," + 
 				"ExpenseComm VARCHAR(250) not NULL," +
-				"ExpenseDate DATE," + 
-				"ExpenseTime TIME," +
+				"ExpenseDate TIMESTAMP," + 
 				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
 		String sqlTableDAILYEXPENSES = 

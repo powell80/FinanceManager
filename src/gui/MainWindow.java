@@ -61,12 +61,11 @@ public class MainWindow implements ActionListener{
 	private double expAmount, dailyAvg, WeeklyAvg, MonthlyAvg;
 	private DBInterface dbInter;
 	private ResultSet rs;
-	private int month, week, day, numDays;
 	private Date expDate, juDate;
 	private DateTime dt; 
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseDate "
-			+ "from EXPENSES  ORDER BY ExpenseDate, ExpenseTime DESC";
+			+ "from EXPENSES  ORDER BY ExpenseDate DESC";
 	
 	//public ActionListener buttonPressed;
 	
@@ -312,8 +311,6 @@ public class MainWindow implements ActionListener{
 		
 		frmFinanceManager.setVisible(true);
 		rdbtnDay.setSelected(true);
-		//month =cInfo.getMonth(); 
-		//numDays = cInfo.getDaysInMonth();
 		dailyAvg = DBint.dailyAvg();
 		lblAvgAmount.setText((doubleFormat.format(dailyAvg)));
 		try {

@@ -1,26 +1,21 @@
 package main;
 
 import java.sql.SQLException;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Timestamp;
+
+import org.joda.time.DateTime;
 
 import database.DBInteract;
+import database.DBInterface;
 
 public class NewExpense {
 	
-	private DBInteract DBint;
-	private Date date;
-	private Time time;
-	private SimpleDateFormat df, tf;
-	private Calendar cal;
+	private DBInterface DBint;
+	private DateTime dateTime;
+	private Timestamp timeStamp;
 	
 	public NewExpense(){
-		this.DBint = new DBInteract();
-		this.date = new Date();
-		this.df = new SimpleDateFormat();
-		this.tf = new SimpleDateFormat();
+		this.DBint = new DBInterface();
 	}
 		
 	public void createExpense(String eName, double eAmount, String eCat, String eType, String eComment){
@@ -30,20 +25,17 @@ public class NewExpense {
 		String category = eCat;
 		String type = eType;
 		String comment = eComment;
-		df = new SimpleDateFormat("yyyy-MM-dd");
-		tf = new SimpleDateFormat("hh:mm:ss");
-		cal = Calendar.getInstance();
-		cal.getTime();
-		
-		
-		
+		dateTime = new DateTime();
+		timeStamp = new Timestamp(dateTime.getMillis());
+		//df = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm:ss").withLocale(Locale.US);
+	
 		
 		sqlNewExpense = "INSERT INTO EXPENSES"
-				+ "(ExpenseName, ExpenseAmount, ExpenseCat, ExpenseType, ExpenseComm, ExpenseDate, ExpenseTime)"
-				+ "VALUES (" + "'" + name + "'," + "'" + amount + "'," + "'" + category + "'," + "'" + type + "'," + "'" + comment + "'," + "'" + df.format(date) + "'," +"'" +tf.format(cal.getTime())+ "'" + ")"; 
+				+ "(ExpenseName, ExpenseAmount, ExpenseCat, ExpenseType, ExpenseComm, ExpenseDate)"
+				+ "VALUES (" + "'" + name + "'," + "'" + amount + "'," + "'" + category + "'," + "'" + type + "'," + "'" + comment + "'," + "'" + timeStamp + "'" + ")"; 
 		
 		try{
-			DBint.dbStmt().executeUpdate(sqlNewExpense);
+			DBint.dbConnect().executeUpdate(sqlNewExpense);
 			
 			
 			System.out.println("db Insert Successful");
