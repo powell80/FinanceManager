@@ -14,7 +14,7 @@ public class DBInteract {
 	private DBInterface dbInt;
 	private CalInfo cInfo;
 	private Date juDate;
-	private DateTime dateTime;
+	private DateTime dbDateTime, dt;
 	Timestamp sqlDate;
 
 	public DBInteract(){
@@ -28,9 +28,7 @@ public class DBInteract {
 		
 		public double dailyAvg(){
 			ResultSet rs = null;
-			DateTime dt = new DateTime();
-			long timestamp;
-			int daysInMonth;
+			dt = new DateTime();
 			double monthlyAmount = 0;
 			double avg = 0.0;
 			
@@ -41,28 +39,19 @@ public class DBInteract {
 				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
 				
 				while(rs.next()){
-					dateTime = new DateTime(rs.getDate("ExpenseDate"));
+					dbDateTime = new DateTime(rs.getDate("ExpenseDate"));
 					
-					
-					
-					System.out.println(dateTime.getDayOfMonth());
-					System.out.println(dt.getDayOfMonth());
-					//System.out.println("year = " + year);
-					
-					if(dateTime.getMonthOfYear() == dt.getMonthOfYear()){
-						
-					}
+					if(dbDateTime.getMonthOfYear() == dt.getMonthOfYear()){
 						monthlyAmount += rs.getDouble("ExpenseAmount");
 					}
+				}
 					
-					System.out.println(monthlyAmount);
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			avg = monthlyAmount / cInfo.getDaysInMonth();
-			System.out.println(avg);
 			return avg;
 		}
 		
