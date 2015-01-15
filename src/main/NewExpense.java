@@ -27,7 +27,6 @@ public class NewExpense {
 		String comment = eComment;
 		dateTime = new DateTime();
 		timeStamp = new Timestamp(dateTime.getMillis());
-		//df = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm:ss").withLocale(Locale.US);
 	
 		
 		sqlNewExpense = "INSERT INTO EXPENSES"

@@ -4,8 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+
 import main.CalInfo;
+
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 
 public class DBInteract {
 	private DBInterface dbInt;
@@ -25,9 +28,9 @@ public class DBInteract {
 		
 		public double dailyAvg(){
 			ResultSet rs = null;
-			dateTime = new DateTime(juDate);
-			int year = dateTime.getYear();
-			int month = dateTime.getMonthOfYear();
+			DateTime dt = new DateTime();
+			long timestamp;
+			int daysInMonth;
 			double monthlyAmount = 0;
 			double avg = 0.0;
 			
@@ -36,11 +39,17 @@ public class DBInteract {
 			
 			try {
 				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
+				
 				while(rs.next()){
+					dateTime = new DateTime(rs.getDate("ExpenseDate"));
 					
-					System.out.println(sqlDate);
 					
-					if((1 == month) && (1 == year)){
+					
+					System.out.println(dateTime.getDayOfMonth());
+					System.out.println(dt.getDayOfMonth());
+					//System.out.println("year = " + year);
+					
+					if(dateTime.getMonthOfYear() == dt.getMonthOfYear()){
 						
 					}
 						monthlyAmount += rs.getDouble("ExpenseAmount");

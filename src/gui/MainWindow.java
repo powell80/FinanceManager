@@ -62,6 +62,7 @@ public class MainWindow implements ActionListener{
 	private DBInterface dbInter;
 	private ResultSet rs;
 	private Date expDate, juDate;
+	private String recentExp;
 	private DateTime dt; 
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseDate "
@@ -323,31 +324,36 @@ public class MainWindow implements ActionListener{
 					expName = rs.getString("ExpenseName");
 					expAmount = rs.getDouble("ExpenseAmount");
 					expDate = rs.getDate("ExpenseDate");
-					firstExp.setText(expName + "--" + expAmount + "--" + expDate);
+					recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+					firstExp.setText(recentExp);
 				}
 				if(i ==2){
 					expName = rs.getString("ExpenseName");
 					expAmount = rs.getDouble("ExpenseAmount");
 					expDate = rs.getDate("ExpenseDate");
-					secondExp.setText(expName + "--" + expAmount + "--" + expDate);
+					recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+					secondExp.setText(recentExp);
 				}
 				if(i == 3){
 					expName = rs.getString("ExpenseName");
 					expAmount = rs.getDouble("ExpenseAmount");
 					expDate = rs.getDate("ExpenseDate");
-					thirdExp.setText(expName + "--" + expAmount + "--" + expDate);
+					recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+					thirdExp.setText(recentExp);
 				}
 				if(i == 4){
 					expName = rs.getString("ExpenseName");
 					expAmount = rs.getDouble("ExpenseAmount");
 					expDate = rs.getDate("ExpenseDate");
-					fourthExp.setText(expName + "--" + expAmount + "--" + expDate);
+					recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+					fourthExp.setText(recentExp);
 				}
 				if(i ==5){
 					expName = rs.getString("ExpenseName");
 					expAmount = rs.getDouble("ExpenseAmount");
 					expDate = rs.getDate("ExpenseDate");
-					fifthExp.setText(expName + "--" + expAmount + "--" + expDate);
+					recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+					fifthExp.setText(recentExp);
 				}
 				else{
 					//break;
@@ -391,31 +397,36 @@ public class MainWindow implements ActionListener{
 						expName = rs.getString("ExpenseName");
 						expAmount = rs.getDouble("ExpenseAmount");
 						expDate = rs.getDate("ExpenseDate");
-						firstExp.setText(expName + "--" + expAmount + "--" + expDate);
+						recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+						firstExp.setText(recentExp);
 					}
 					if(i ==2){
 						expName = rs.getString("ExpenseName");
 						expAmount = rs.getDouble("ExpenseAmount");
 						expDate = rs.getDate("ExpenseDate");
-						secondExp.setText(expName + "--" + expAmount + "--" + expDate);
+						recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+						secondExp.setText(recentExp);
 					}
 					if(i == 3){
 						expName = rs.getString("ExpenseName");
 						expAmount = rs.getDouble("ExpenseAmount");
 						expDate = rs.getDate("ExpenseDate");
-						thirdExp.setText(expName + "--" + expAmount + "--" + expDate);
+						recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+						thirdExp.setText(recentExp);
 					}
 					if(i == 4){
 						expName = rs.getString("ExpenseName");
 						expAmount = rs.getDouble("ExpenseAmount");
 						expDate = rs.getDate("ExpenseDate");
-						fourthExp.setText(expName + "--" + expAmount + "--" + expDate);
+						recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+						fourthExp.setText(recentExp);
 					}
 					if(i ==5){
 						expName = rs.getString("ExpenseName");
 						expAmount = rs.getDouble("ExpenseAmount");
 						expDate = rs.getDate("ExpenseDate");
-						fifthExp.setText(expName + "--" + expAmount + "--" + expDate);
+						recentExp = String.format("%1s %20s %20s", expName, expAmount, expDate);
+						fifthExp.setText(recentExp);
 					}
 					else{
 						//break;
