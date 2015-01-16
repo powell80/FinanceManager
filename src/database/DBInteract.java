@@ -56,12 +56,59 @@ public class DBInteract {
 		}
 		
 		public double weeklyAvg(){
+			ResultSet rs = null;
+			dt = new DateTime();
+			double monthlyAmount = 0;
+			double avg = 0.0;
+				
+			String sqlCompDate = "SELECT ExpenseName, ExpenseAmount, ExpenseDate "
+						+ "from EXPENSES  ORDER BY ExpenseDate DESC";
+				
+			try {
+				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
+					
+				while(rs.next()){
+					dbDateTime = new DateTime(rs.getDate("ExpenseDate"));
+						
+					if(dbDateTime.getMonthOfYear() == dt.getMonthOfYear()){
+						monthlyAmount += rs.getDouble("ExpenseAmount");
+					}
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			avg = monthlyAmount / 4;
+			return avg;
 			
-			return 0;
 		}
 		
 		public double monthlySpending(){
-		
-			return 0;
+			ResultSet rs = null;
+			dt = new DateTime();
+			double monthlyAmount = 0;
+			double avg = 0.0;
+				
+			String sqlCompDate = "SELECT ExpenseName, ExpenseAmount, ExpenseDate "
+						+ "from EXPENSES  ORDER BY ExpenseDate DESC";
+				
+			try {
+				rs = dbInt.dbConnect().executeQuery(sqlCompDate);
+					
+				while(rs.next()){
+					dbDateTime = new DateTime(rs.getDate("ExpenseDate"));
+						
+					if(dbDateTime.getMonthOfYear() == dt.getMonthOfYear()){
+						monthlyAmount += rs.getDouble("ExpenseAmount");
+					}
+				}
+						
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			avg = monthlyAmount;
+			return avg;
 		}
 	}

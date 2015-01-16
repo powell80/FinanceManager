@@ -378,6 +378,8 @@ public class MainWindow implements ActionListener{
 		frmFinanceManager.setVisible(true);
 		rdbtnDay.setSelected(true);
 		dailyAvg = DBint.dailyAvg();
+		WeeklyAvg = DBint.weeklyAvg();
+		MonthlyAvg = DBint.monthlySpending();
 		lblAvgAmount.setText((doubleFormat.format(dailyAvg)));
 		try {
 			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
