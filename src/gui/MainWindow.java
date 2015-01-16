@@ -380,7 +380,7 @@ public class MainWindow implements ActionListener{
 		dailyAvg = DBint.dailyAvg();
 		WeeklyAvg = DBint.weeklyAvg();
 		MonthlyAvg = DBint.monthlySpending();
-		lblAvgAmount.setText((doubleFormat.format(dailyAvg)));
+		lblAvgAmount.setText(("$" + doubleFormat.format(dailyAvg)));
 		try {
 			rs = dbInter.dbConnect().executeQuery(selectRecentExp);
 			int i = 1;
@@ -520,15 +520,15 @@ public class MainWindow implements ActionListener{
 		if(rdbtnDay.isSelected()){
 			
 			dailyAvg = DBint.dailyAvg();
-			lblAvgAmount.setText(doubleFormat.format(dailyAvg));
+			lblAvgAmount.setText("$" + doubleFormat.format(dailyAvg));
 		}
 		if(rdbtnWeek.isSelected()){
 			WeeklyAvg = DBint.weeklyAvg();
-			lblAvgAmount.setText(doubleFormat.format(WeeklyAvg));
+			lblAvgAmount.setText("$" + doubleFormat.format(WeeklyAvg));
 		}
 		if(rdbtnMonth.isSelected()){
 			MonthlyAvg = DBint.monthlySpending();
-			lblAvgAmount.setText(doubleFormat.format(MonthlyAvg));
+			lblAvgAmount.setText("$" + doubleFormat.format(MonthlyAvg));
 		}
 	}
 }
