@@ -28,6 +28,18 @@ public class DBInterface {
 				"ExpenseDate TIMESTAMP," + 
 				"CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId))";
 		
+		//sql statements to create database
+		String sqlTableINCOME = 
+				"CREATE TABLE INCOME" + 
+				"(IncomeId int NOT NULL AUTO_INCREMENT," +
+				"IncomeName VARCHAR(100) not NULL," +
+				"IncomeAmount DECIMAL(10,2) not NULL," + 
+				"IncomeCat VARCHAR(50) not NULL," + 
+				"IncomeType VARCHAR(50) not NULL," + 
+				"IncomeComm VARCHAR(250) not NULL," +
+				"IncomeDate TIMESTAMP," + 
+				"CONSTRAINT PKINCOME PRIMARY KEY (IncomeId))";
+		
 		String sqlTableDAILYEXPENSES = 
 				"CREATE TABLE DAILYEXPENSES" +
 				"( "
@@ -57,20 +69,24 @@ public class DBInterface {
 			//STEP 2: Open a Connection
 			System.out.println("Creating new Database...");
 			conn = DriverManager.getConnection(DB_URL, USER, ATTRIBUTE);
-			stmt = conn.createStatement();
 			//create database and connect
 			System.out.println("Database " + DBNAME + " Created Successfully");
 	
-			stmt.executeUpdate(sqlTableEXPENSES);
+			dbConnect().executeUpdate(sqlTableEXPENSES);
+			dbConnect().executeUpdate(sqlTableINCOME);
 			System.out.println("Created table in Database " + DBNAME);
 
 		}catch (SQLException se) {
 			if (se.getErrorCode() == 42101){
-				System.out.println(se.getMessage());
-				//login.initialize();
+				System.out.println(se.getMessage());	
 			}else
             //Handle errors for JDBC
-            se.printStackTrace();
+				if(se.getErrorCode() == 42101){
+					se.getErrorCode();
+				}
+				else{
+					se.printStackTrace();
+				}
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
