@@ -41,6 +41,7 @@ import javax.swing.DefaultComboBoxModel;
 import org.joda.time.DateTime;
 
 import java.awt.Font;
+import javax.swing.UIManager;
 
 
 public class MainWindow implements ActionListener{
@@ -82,7 +83,7 @@ public class MainWindow implements ActionListener{
 	 * Create the application.
 	 */
 	public MainWindow() {
-		//initialize();
+		initialize();
 		
 		dt = new DateTime(juDate);
 		this.nExp = new NewExpense();
@@ -106,6 +107,7 @@ public class MainWindow implements ActionListener{
 		Calendar.getInstance();
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBackground(Color.LIGHT_GRAY);
 		tabbedPane.setBounds(10, 11, 814, 560);
 		frmFinanceManager.getContentPane().add(tabbedPane);
 		
@@ -114,8 +116,8 @@ public class MainWindow implements ActionListener{
 		panel_2.setLayout(null);
 		
 		JPanel addExpPanel = new JPanel();
+		addExpPanel.setBorder(new TitledBorder(null, "Add Expense", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		addExpPanel.setBounds(12, 189, 293, 255);
-		addExpPanel.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Add Expense", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_2.add(addExpPanel);
 		addExpPanel.setLayout(null);
 		
@@ -177,6 +179,7 @@ public class MainWindow implements ActionListener{
 		addExpPanel.add(lblType);
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane_1.setBackground(Color.LIGHT_GRAY);
 		tabbedPane_1.setBounds(519, 8, 275, 169);
 		panel_2.add(tabbedPane_1);
 		
@@ -240,7 +243,7 @@ public class MainWindow implements ActionListener{
 		tabbedPane_1.addTab("Income", null, panel_5, null);
 		
 		JPanel panel_6 = new JPanel();
-		panel_6.setBorder(new TitledBorder(new LineBorder(new Color(184, 207, 229)), "Recent Expenses", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 51, 51)));
+		panel_6.setBorder(new TitledBorder(null, "Recent Expenses", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel_6.setBounds(12, 8, 493, 169);
 		panel_2.add(panel_6);
 		
