@@ -83,7 +83,7 @@ public class MainWindow implements ActionListener{
 	 * Create the application.
 	 */
 	public MainWindow() {
-		initialize();
+		//initialize();
 		
 		dt = new DateTime(juDate);
 		this.nExp = new NewExpense();
@@ -188,9 +188,7 @@ public class MainWindow implements ActionListener{
 		
 		rdbtnDay = new JRadioButton("Day");
 		rdbtnDay.setSelected(true);
-		
 		rdbtnWeek = new JRadioButton("Week");
-		
 		rdbtnMonth = new JRadioButton("Month");
 		
 		//add day, week, and month radio buttons to radioGroup
