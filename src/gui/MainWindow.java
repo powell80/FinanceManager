@@ -347,7 +347,7 @@ public class MainWindow implements ActionListener{
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
 		Calender calender = new Calender();
-		calender.setBounds(12, 59, 630, 450);
+		calender.setBounds(12, 59, 785, 462);
 		panel_3.add(calender);
 		tabbedPane.addTab("Monthly Calender", null, panel_3, null);
 		
