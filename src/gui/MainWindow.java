@@ -40,6 +40,7 @@ import org.joda.time.DateTime;
 
 import java.awt.Font;
 import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 
 
 public class MainWindow implements ActionListener{
@@ -98,7 +99,7 @@ public class MainWindow implements ActionListener{
 	public void initialize() {
 		frmFinanceManager = new JFrame();
 		frmFinanceManager.setTitle("Finance Manager");
-		frmFinanceManager.setBounds(100, 100, 841, 633);
+		frmFinanceManager.setBounds(100, 100, 841, 693);
 		frmFinanceManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmFinanceManager.getContentPane().setLayout(null);
 		NumberFormat doubleFormat = new DecimalFormat("#0.00");
@@ -106,7 +107,7 @@ public class MainWindow implements ActionListener{
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBackground(Color.LIGHT_GRAY);
-		tabbedPane.setBounds(10, 11, 814, 560);
+		tabbedPane.setBounds(10, 11, 814, 621);
 		frmFinanceManager.getContentPane().add(tabbedPane);
 		
 		JPanel panel_2 = new JPanel();
@@ -343,7 +344,8 @@ public class MainWindow implements ActionListener{
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(null);
 		Calender calender = new Calender();
-		calender.setBounds(12, 59, 785, 462);
+		calender.setBorder(null);
+		calender.setBounds(12, 59, 785, 523);
 		panel_3.add(calender);
 		tabbedPane.addTab("Monthly Calender", null, panel_3, null);
 		

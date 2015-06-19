@@ -4,16 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
-
 import main.CalInfo;
-
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
 
 public class DBInteract {
 	private DBInterface dbInt;
 	private CalInfo cInfo;
-	private Date juDate;
 	private DateTime dbDateTime, dt;
 	Timestamp sqlDate;
 
@@ -111,4 +108,5 @@ public class DBInteract {
 			avg = monthlyAmount;
 			return avg;
 		}
+		
 	}
