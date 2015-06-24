@@ -16,11 +16,11 @@ import javax.swing.border.MatteBorder;
 	
 	    public class Calender extends JPanel {
 			private static final long serialVersionUID = 1L;
-			public Rectangle rect;
 
 			public Calender() {
 	            setLayout(new GridBagLayout());
 	            GridBagConstraints gbc = new GridBagConstraints();
+	            
 	            int day = 1;
 	            
 	        }
