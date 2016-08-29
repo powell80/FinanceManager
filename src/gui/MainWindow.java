@@ -94,6 +94,7 @@ public class MainWindow implements ActionListener{
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void initialize() {
@@ -357,6 +358,9 @@ public class MainWindow implements ActionListener{
 		
 		JMenu mnNew = new JMenu("New");
 		mnFile.add(mnNew);
+		
+		JMenuItem mntmExpenseReport = new JMenuItem("Expense Report");
+		mnNew.add(mntmExpenseReport);
 		
 		JMenu mnOpen = new JMenu("Open");
 		mnFile.add(mnOpen);
