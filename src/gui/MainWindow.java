@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.Color;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -13,34 +12,29 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
 import main.NewExpense;
 import main.CalInfo;
 import database.DBInteract;
 import database.DBInterface;
-
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Calendar;
-
 import javax.swing.DefaultComboBoxModel;
-
 import org.joda.time.DateTime;
-
 import java.awt.Font;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class MainWindow implements ActionListener{
@@ -69,6 +63,9 @@ public class MainWindow implements ActionListener{
 	private String expCat;
 	private String recentExp;
 	private DateTime dt; 
+	private JMenu mnFile;
+	private JMenuItem mntmExpenseReport;
+	private JMenuItem mntmExit;
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseCat "
 			+ "from EXPENSES  ORDER BY ExpenseDate DESC";
@@ -353,13 +350,14 @@ public class MainWindow implements ActionListener{
 		JMenuBar menuBar = new JMenuBar();
 		frmFinanceManager.setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("File");
+		mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		
 		JMenu mnNew = new JMenu("New");
 		mnFile.add(mnNew);
 		
-		JMenuItem mntmExpenseReport = new JMenuItem("Expense Report");
+		mntmExpenseReport = new JMenuItem("Expense Report");
+		mntmExpenseReport.addActionListener(this);
 		mnNew.add(mntmExpenseReport);
 		
 		JMenu mnOpen = new JMenu("Open");
@@ -368,7 +366,8 @@ public class MainWindow implements ActionListener{
 		JMenuItem menuItem = new JMenuItem("New menu item");
 		mnFile.add(menuItem);
 		
-		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(this);
 		mnFile.add(mntmExit);
 		
 		JMenu mnEdit = new JMenu("Edit");
@@ -535,6 +534,13 @@ public class MainWindow implements ActionListener{
 			MonthlyAvg = DBint.monthlySpending();
 			lblAvgAmount.setText("$" + doubleFormat.format(MonthlyAvg));
 		}
+		if (event.getSource() == mntmExpenseReport){
+			System.out.println("Expense Report Clicked");
+		}
+		if(event.getSource() == mntmExit){
+			System.exit(0);
+		}
+			
 	}
 }
 
