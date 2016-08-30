@@ -2,10 +2,7 @@ package main;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
-
 import org.joda.time.DateTime;
-
-import database.DBInteract;
 import database.DBInterface;
 
 public class NewExpense {

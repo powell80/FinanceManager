@@ -10,10 +10,6 @@ import org.joda.time.DateTime;
 public class CalDay extends JPanel { 
 
 	private static final long serialVersionUID = 1L;
-	private int month;
-	private int daysInMonth;
-	private int day;
-	private int year;
 	JPanel panel;
 	
 	

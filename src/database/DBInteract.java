@@ -3,10 +3,10 @@ package database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
+//import java.util.*;
 import main.CalInfo;
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
+//import org.joda.time.DateTimeZone;
 
 public class DBInteract {
 	private DBInterface dbInt;

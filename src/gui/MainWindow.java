@@ -58,7 +58,6 @@ public class MainWindow implements ActionListener{
 	int  tempLength, maxLength = 30;
 	private Date expDate, juDate;
 	private String expCat;
-	private String recentExp;
 	private DateTime dt; 
 	private JMenu mnFile;
 	private JMenuItem mntmExpenseReport;
