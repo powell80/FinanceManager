@@ -534,7 +534,7 @@ public class MainWindow implements ActionListener{
 					i++;
 					total += rs.getDouble("ExpenseAmount");
 					}
-				System.out.print("Total Expenses: " + total);
+				System.out.print("Total Expenses: $" + total);
 					
 				
 			} catch (SQLException e) {
