@@ -532,7 +532,7 @@ public class MainWindow implements ActionListener{
 					rs.getString("ExpenseComm") +  "\n");
 					
 					i++;
-					total += expAmount;
+					total += rs.getDouble("ExpenseAmount");
 					}
 				System.out.print("Total Expenses: " + total);
 					
