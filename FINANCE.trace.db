@@ -235,3 +235,234 @@ CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(
 08-30 18:23:53 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
 CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:08:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:14:19 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:24:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:34:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:43:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:43:44 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Column "ExpenseType" not found [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3122)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:304)
+	at gui.MainWindow.actionPerformed(MainWindow.java:531)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Handler.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+08-30 21:44:24 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:44:29 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Column "ExpenseType" not found [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3122)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:304)
+	at gui.MainWindow.actionPerformed(MainWindow.java:531)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Handler.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+08-30 21:45:12 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:47:55 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:47:59 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Column "ExpenseName - " not found [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3122)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:304)
+	at gui.MainWindow.actionPerformed(MainWindow.java:527)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Handler.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+08-30 21:49:33 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:49:37 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLException: Column "ExpenseComm 
+" not found [42122-176]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:344)
+	at org.h2.message.DbException.get(DbException.java:178)
+	at org.h2.message.DbException.get(DbException.java:154)
+	at org.h2.jdbc.JdbcResultSet.getColumnIndex(JdbcResultSet.java:3122)
+	at org.h2.jdbc.JdbcResultSet.get(JdbcResultSet.java:3210)
+	at org.h2.jdbc.JdbcResultSet.getString(JdbcResultSet.java:304)
+	at gui.MainWindow.actionPerformed(MainWindow.java:532)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.AbstractButton.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI.doClick(Unknown Source)
+	at javax.swing.plaf.basic.BasicMenuItemUI$Handler.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$500(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+08-30 21:50:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:50:21 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:53:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:56:24 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-30 21:57:14 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]

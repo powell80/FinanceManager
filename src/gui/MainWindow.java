@@ -65,6 +65,8 @@ public class MainWindow implements ActionListener{
 	
 	String selectRecentExp = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseCat "
 			+ "from EXPENSES  ORDER BY ExpenseDate DESC";
+	String expenseDetails = "SELECT ExpenseName, ExpenseAmount, ExpenseDate, ExpenseCat, ExpenseComm "
+			+ "from EXPENSES  ORDER BY ExpenseDate DESC";
 	
 	//public ActionListener buttonPressed;
 	
@@ -507,14 +509,38 @@ public class MainWindow implements ActionListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
 			txteName.setText(null);
 			txteAmount.setText(null);
 			cbeCat.setSelectedIndex(0);
 			cbeType.setSelectedIndex(0);
 			txteComm.setText(null);
-			
+		}
+		double total = 0;
+		if (event.getSource() == mntmExpenseReport){
+			System.out.println("Expense Report Generated");
+			try {
+				rs = dbInter.dbConnect().executeQuery(expenseDetails);
+				int i = 1;
+				
+				while(rs.next()){
+					System.out.print(i + ". ");
+					System.out.print(rs.getString("ExpenseName")+ "-" +
+					rs.getDate("ExpenseDate") + "- $"+
+					rs.getDouble("ExpenseAmount") +"-"+
+					rs.getString("ExpenseCat") + "-"+
+					//rs.getString("ExpenseType") +
+					rs.getString("ExpenseComm") +  "\n");
+					
+					i++;
+					total += expAmount;
+					}
+				System.out.print("Total Expenses: " + total);
+					
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if(rdbtnDay.isSelected()){
@@ -529,9 +555,6 @@ public class MainWindow implements ActionListener{
 		if(rdbtnMonth.isSelected()){
 			MonthlyAvg = DBint.monthlySpending();
 			lblAvgAmount.setText("$" + doubleFormat.format(MonthlyAvg));
-		}
-		if (event.getSource() == mntmExpenseReport){
-			System.out.println("Expense Report Clicked");
 		}
 		if(event.getSource() == mntmExit){
 			System.exit(0);
