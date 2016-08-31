@@ -444,6 +444,7 @@ public class MainWindow implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		NumberFormat doubleFormat = new DecimalFormat("#0.00");
+		ExpenseReport expRep = new ExpenseReport();
 		//test if create user button was pressed
 		double exp;
 		
@@ -518,6 +519,8 @@ public class MainWindow implements ActionListener{
 		double total = 0;
 		if (event.getSource() == mntmExpenseReport){
 			System.out.println("Expense Report Generated");
+			expRep.setVisible(true);
+			
 			try {
 				rs = dbInter.dbConnect().executeQuery(expenseDetails);
 				int i = 1;

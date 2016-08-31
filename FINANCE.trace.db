@@ -484,3 +484,33 @@ CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(
 08-30 22:13:20 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
 CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 09:51:05 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:03:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:04:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:10:39 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:26:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:27:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:28:41 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:29:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:29:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
+08-31 10:33:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "EXPENSES" already exists; SQL statement:
+CREATE TABLE EXPENSES(ExpenseId int NOT NULL AUTO_INCREMENT,ExpenseName VARCHAR(100) not NULL,ExpenseAmount DECIMAL(10,2) not NULL,ExpenseCat VARCHAR(50) not NULL,ExpenseType VARCHAR(50) not NULL,ExpenseComm VARCHAR(250) not NULL,ExpenseDate TIMESTAMP,CONSTRAINT PKEXPENSES PRIMARY KEY (ExpenseId)) [42101-176]
