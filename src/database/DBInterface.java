@@ -11,7 +11,7 @@ public class DBInterface {
 	public static final String ATTRIBUTE = "";
 	private Connection conn = null;
 	private Statement stmt = null;
-	private Array []stmtArray;
+	//private Array []stmtArray;
 	
 	
 	public void WriteDB() throws SQLException{
